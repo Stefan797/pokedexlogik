@@ -31,16 +31,31 @@ async function getPokemonByUrl(onlypokemonurl) {
 
 function renderFirstPokemonGeneration() {
     for (let key in pokemonDict) {
-        console.log(key);
-        // let pokemon = pokemonDict[index];
-        // let container = document.getElementById('container');
-        // container.innerHTML += `<div>${pokemon['name']}</div>`;
+        // console.log(key);
+        let pokemon = pokemonDict[key];
+        let container = document.getElementById('container');
+        container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
     }
 }
 
 async function renderSecondPokemonGeneration() {
     // P von 151 + 20 !
+    // P bis 151 nicht anzeigt werden sollen
+    
+    
     await loadPokemons(20, 151);
+    
+
+    //let SecondPokemonGeneration = pokemonDict.filter();
+    
+    for (let key in pokemonDict) {
+        // console.log(key);
+        let pokemon = pokemonDict[key];
+        console.log(pokemon);
+        let container = document.getElementById('container');
+        container.innerHTML = '';
+        container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
+    }
 }
 
 async function renderThirdPokemonGeneration() {
