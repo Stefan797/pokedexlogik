@@ -52,9 +52,9 @@ async function renderSecondPokemonGeneration() {
     for (let key in pokemonDict) {
         // console.log(key);
         let pokemon = pokemonDict[key];
-        console.log(pokemon);
+        // console.log(pokemon);
         let container = document.getElementById('container');
-        container.innerHTML = '';
+        // container.innerHTML = '';
         container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
     }
 }
