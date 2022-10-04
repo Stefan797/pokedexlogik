@@ -2,10 +2,11 @@ let pokemonDict = {};
 
 async function init() {
     await loadPokemons(25, 0);
+    renderFirstPokemonGeneration();
 }
 
 async function loadPokemons(amountofnewloadedPokemons, start) {
-    let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`; // limit= 387 
+    let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
     let response = await fetch(pokemonapiurl);
     let responseasJson = await response.json();
 
@@ -71,12 +72,3 @@ async function loadmorePokemon(start, stop) {
     }
     // pokemonDict updaten
 }
-
-// function renderFirstPokemonGeneration() {
-//     for (let key in pokemonDict) {
-//         console.log(pokemons[key]);
-//         // let pokemon = pokemonDict[index];
-//         // let container = document.getElementById('container');
-//         // container.innerHTML += `<div>${pokemon['name']}</div>`;
-//     }
-// }
