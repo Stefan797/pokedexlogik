@@ -30,13 +30,22 @@ async function getPokemonByUrl(onlypokemonurl) {
     return responseasJson;
 }
 
-function renderFirstPokemonGeneration() {
-    for (let key in pokemonDict) {
-        // console.log(key);
-        let pokemon = pokemonDict[key];
-        let container = document.getElementById('container');
-        container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
+function renderPokemonGeneration(start, stop) {
+    let container = document.getElementById('container');
+
+    for (let i = start; i < stop; i++) {
+        const pokemon = pokemonDict[i];
+        if(pokemon) {
+            container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
+        }   
     }
+
+    // for (let key in pokemonDict) {
+    //     // console.log(key);
+    //     let pokemon = pokemonDict[key];
+    //     let container = document.getElementById('container');
+    //     container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
+    // }
 }
 
 async function renderSecondPokemonGeneration() {
@@ -45,7 +54,7 @@ async function renderSecondPokemonGeneration() {
     
     
     await loadPokemons(20, 151);
-    
+    renderPokemonGeneration(151, 250);
 
     //let SecondPokemonGeneration = pokemonDict.filter();
     
