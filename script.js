@@ -25,19 +25,19 @@ async function getPokemonByUrl(onlypokemonurl) {
     return responseasJson;
 }
 
-async function renderPokemonGeneration(start, stop, pokemonGenerationNummber) {
-    debugger;
-    switch (pokemonGenerationNummber) {
+async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
+    switch (pokemonGenerationNumber) {
         case "1":
             await loadPokemons(20, 151);
             break;
         case "2":
-            console.log(pokemonGenerationNummber);
+            console.log(pokemonGenerationNumber);
             break;
         case "3":
-            console.log(pokemonGenerationNummber);
+            console.log(pokemonGenerationNumber);
             break;
         default:
+            console.log('default');
     }
 
     let container = document.getElementById('container');
