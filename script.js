@@ -28,19 +28,19 @@ async function getPokemonByUrl(onlypokemonurl) {
 async function checkpokemonGenerationDatas(number) {
     switch (number) {
         case 1:
-            if (!pokemonDict[1]) {
-                await loadPokemons(20, 1);
+            if (!pokemonDict[2]) {
+                await loadPokemons(20, 2);
             }
 
             break;
         case 2:
             console.log(pokemonDict);
-            if (!pokemonDict[151]) {
+            if (!pokemonDict[152]) {
                 await loadPokemons(20, 151);
             }
             break;
         case 3:
-            if (!pokemonDict[251]) {
+            if (!pokemonDict[252]) {
                 await loadPokemons(20, 251);
             }
             break;
