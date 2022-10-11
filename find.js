@@ -21,3 +21,13 @@ function findNextMissingPokemon(start = 1) {
 }
 
 console.log(findNextMissingPokemon(150));
+
+
+// async function loadmorePokemon(start, stop) {
+//     if (!pokemonDict[1]) {
+//         let resp = await fetch('Pekomon 1');
+//         let json = await resp.json();
+//         pokemonDict[1] = json;
+//     }
+//     // pokemonDict updaten
+// }
