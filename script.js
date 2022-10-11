@@ -1,7 +1,7 @@
 let pokemonDict = {};
 
 async function init() {
-    await loadPokemons(25, 0);
+    await loadPokemons(20, 0);
     renderPokemonGeneration(1, 151);
 }
 
@@ -25,20 +25,35 @@ async function getPokemonByUrl(onlypokemonurl) {
     return responseasJson;
 }
 
-async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
-    switch (pokemonGenerationNumber) {
-        case "1":
-            await loadPokemons(20, 151);
+async function checkpokemonGenerationDatas(number) {
+    switch (number) {
+        case 1:
+            if (!pokemonDict[1]) {
+                await loadPokemons(20, 1);
+            }
+
             break;
-        case "2":
-            console.log(pokemonGenerationNumber);
+        case 2:
+            console.log(pokemonDict);
+            if (!pokemonDict[151]) {
+                await loadPokemons(20, 151);
+            }
             break;
-        case "3":
-            console.log(pokemonGenerationNumber);
+        case 3:
+            if (!pokemonDict[251]) {
+                await loadPokemons(20, 251);
+            }
             break;
+            // Can be extended by several generations.
         default:
             console.log('default');
     }
+}
+
+async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
+
+    checkpokemonGenerationDatas(pokemonGenerationNumber);
+    
 
     let container = document.getElementById('container');
     container.innerHTML = '';
