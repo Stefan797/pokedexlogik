@@ -16,3 +16,15 @@ window.onscroll = async function (ev) {
         console.log("SCROLLING UP");
     }
 };
+
+window.onscroll = async function (ev) {
+    let currentloading = false;
+    let percent = (document.body.scrollHeight / window.scrollY) * 100;
+    if ((percent >= 90) && !currentloading) {
+        
+        console.log(percent);
+        currentloading = true;
+        console.log('going');
+        currentloading = false;
+    } 
+};

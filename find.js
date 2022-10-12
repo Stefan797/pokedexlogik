@@ -22,6 +22,9 @@ function findNextMissingPokemon(start = 1) {
 
 console.log(findNextMissingPokemon(150));
 
+// function findpokemonGeneration() {
+//     return start, stop, pokemonGenerationNumber;
+// }
 
 // async function loadmorePokemon(start, stop) {
 //     if (!pokemonDict[1]) {
