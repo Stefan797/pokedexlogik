@@ -1,9 +1,26 @@
 let pokemonDict = {};
+let currentloading = false;
 
 async function init() {
     await loadPokemons(20, 0);
     renderPokemonGeneration(1, 151);
 }
+
+window.onscroll = async function (ev) {
+    debugger;
+    let percent = (document.body.scrollHeight / window.scrollY) * 100;
+    console.log(percent);
+    if ((percent >= 90) && !currentloading) {
+        
+        console.log(percent);
+        currentloading = true;
+        console.log('going');
+        currentloading = false;
+        lastYScroll = ev.scrollY;
+    } else if(ev.scrollY <= lastYScroll){
+        console.log("SCROLLING UP");
+    }
+};
 
 async function loadPokemons(amountofnewloadedPokemons, start) {
     let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
