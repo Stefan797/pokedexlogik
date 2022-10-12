@@ -1,5 +1,5 @@
 let pokemonDict = {};
-let currentloading = false;
+
 
 async function init() {
     await loadPokemons(20, 0);
@@ -7,19 +7,15 @@ async function init() {
 }
 
 window.onscroll = async function (ev) {
-    debugger;
+    let currentloading = false;
     let percent = (document.body.scrollHeight / window.scrollY) * 100;
-    console.log(percent);
     if ((percent >= 90) && !currentloading) {
         
         console.log(percent);
         currentloading = true;
         console.log('going');
         currentloading = false;
-        lastYScroll = ev.scrollY;
-    } else if(ev.scrollY <= lastYScroll){
-        console.log("SCROLLING UP");
-    }
+    } 
 };
 
 async function loadPokemons(amountofnewloadedPokemons, start) {
