@@ -1,4 +1,5 @@
 let pokemonDict = {};
+let currentshowedPokedex = 1;
 
 async function init() {
     await loadPokemons(20, 0);
@@ -10,32 +11,51 @@ window.onscroll = async function (ev) {
     if (hasReachedPageBottom() && !currentloading) {
         currentloading = true;
         console.log('going');
-        show(findNextMissingPokemon(1));
+        checkandinitializeFindPokemon(findNextMissingPokemon(checkfindNextMissingPokemonstartvalue()));
         currentloading = false;
     }
 };
 
-// function getmore(value) {
-//     getvalue = value[[PromiseResult]];
-//     console.log(getvalue);  
-// }
-
-// function show(h) {
-//     console.log(h);
-// }
-
-// function show21() {
-//     return 21;
-// }
+function checkfindNextMissingPokemonstartvalue() {
+    if (currentshowedPokedex == 1) {
+        return 1;
+    }
+    if (currentshowedPokedex == 2) {
+        return 151;
+    }
+    if (currentshowedPokedex == 3) {
+        return 251;
+    }
+}
 
 async function findNextMissingPokemon(start) {
+    console.log(start);
     // debugger;
-    for (let i = start; i < 80; i++) {
+    for (let i = start; i < 387; i++) {
         if (pokemonDict[i]) {
             continue;
         } else {
             return i;
         }
+    }
+}
+
+async function checkandinitializeFindPokemon(foundvalue) {
+    console.log(await foundvalue);
+    getvalue = await foundvalue;
+    newstartvalue = getvalue - 1;
+    // con(newstartvalue);
+    await loadPokemons(20, newstartvalue);
+    checkGeneration();
+}
+
+function checkGeneration(findNextMissingPokemonvalue) {
+    if (findNextMissingPokemonvalue < 151) {
+        renderPokemonGeneration(1, 151, 1);
+    } else if (findNextMissingPokemonvalue >= 151 && findNextMissingPokemonvalue < 251) {
+        renderPokemonGeneration(151, 251, 2);
+    } else if (findNextMissingPokemonvalue >= 251 && findNextMissingPokemonvalue < 387) {
+        renderPokemonGeneration(251, 387, 3);
     }
 }
 
@@ -88,7 +108,10 @@ async function checkPokemonGenerationDatas(number) {
     }
 }
 
-async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
+async function renderPokemonGeneration(start, stop, pokemonGenerationNumber, current) {
+
+    currentshowedPokedex = current;
+    con(currentshowedPokedex);
 
     checkPokemonGenerationDatas(pokemonGenerationNumber);
 
