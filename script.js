@@ -1,5 +1,5 @@
 let pokemonDict = {};
-let currentshowedPokedex = 1;
+let currentShowedPokedex = 1;
 
 async function init() {
     await loadPokemons(20, 0);
@@ -11,53 +11,60 @@ window.onscroll = async function (ev) {
     if (hasReachedPageBottom() && !currentloading) {
         currentloading = true;
         console.log('going');
-        checkandinitializeFindPokemon(findNextMissingPokemon(checkfindNextMissingPokemonstartvalue()));
+        let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
+        if (nextPokemonId != null) {
+            checkandinitializeFindPokemon(nextPokemonId);
+        }
+        
         currentloading = false;
     }
 };
 
-function checkfindNextMissingPokemonstartvalue() {
-    if (currentshowedPokedex == 1) {
+function checkfindNextMissingPokemonStartValue() {
+    if (currentShowedPokedex == 1) {
         return 1;
     }
-    if (currentshowedPokedex == 2) {
+    if (currentShowedPokedex == 2) {
         return 151;
     }
-    if (currentshowedPokedex == 3) {
+    if (currentShowedPokedex == 3) {
         return 251;
     }
 }
 
 async function findNextMissingPokemon(start) {
-    console.log(start);
-    // debugger;
-    for (let i = start; i < 387; i++) {
-        if (pokemonDict[i]) {
-            continue;
-        } else {
-            return i;
-        }
+    if (start <= 387) {
+        for (let i = start; i < 387; i++) {
+            if (pokemonDict[i]) {
+                continue;
+            } else {
+                return i;
+            }
+        }  
+    } else {
+        return null;
     }
 }
 
-async function checkandinitializeFindPokemon(foundvalue) {
-    console.log(await foundvalue);
-    getvalue = await foundvalue;
-    newstartvalue = getvalue - 1;
+/**
+ * 
+ * @param {number} nextPokemonId - ID of next Pokemon 
+ */
+async function checkandinitializeFindPokemon(nextPokemonId) {
+    console.log(nextPokemonId);
+    let newStartValue = nextPokemonId - 1;
     // con(newstartvalue);
-    await loadPokemons(20, newstartvalue);
-    checkGeneration(getvalue);
+    await loadPokemons(20, newStartValue);
+    renderCurrentGeneration(nextPokemonId);
 }
 
-function checkGeneration(findNextMissingPokemonvalue) {
+function renderCurrentGeneration(nextPokemonId) {
     // debugger;
-    if (findNextMissingPokemonvalue < 151) {
+    if (nextPokemonId < 151) { // TODO: WENN bei generation 1, dann generation 1 rendern
         renderPokemonGeneration(1, 151, 1);
-    } 
-    if (findNextMissingPokemonvalue > 151 && findNextMissingPokemonvalue < 251) {
+    } else if (nextPokemonId < 251) {
         renderPokemonGeneration(152, 252, 2);
-    } 
-    if (findNextMissingPokemonvalue > 252 && findNextMissingPokemonvalue < 387) {
+    } else if (nextPokemonId < 387) {
         renderPokemonGeneration(252, 387, 3);
     }
 }
@@ -109,10 +116,25 @@ async function checkPokemonGenerationStarts(generationNumber) {
             console.log('default');
     }
 }
+async function loadPokemonGeneration(start, stop, generationNumber) {
+    switch (generationNumber) {
+        case 1:
+            await loadPokemons(20, 1);
+        break;
+        case 2:
+            await loadPokemons(20, 151);
+        break;
+        case 3:
+            await loadPokemons(20, 251);
+        break;
+    }
+
+    renderPokemonGeneration(start, stop, generationNumber);
+}
 
 async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
-    currentshowedPokedex = pokemonGenerationNumber;
-    checkPokemonGenerationStarts(currentshowedPokedex);
+    currentShowedPokedex = pokemonGenerationNumber;
+    // checkPokemonGenerationStarts(currentShowedPokedex);
     let container = document.getElementById('container');
     container.innerHTML = '';
     for (let i = start; i < stop; i++) {
