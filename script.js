@@ -46,16 +46,19 @@ async function checkandinitializeFindPokemon(foundvalue) {
     newstartvalue = getvalue - 1;
     // con(newstartvalue);
     await loadPokemons(20, newstartvalue);
-    checkGeneration();
+    checkGeneration(getvalue);
 }
 
 function checkGeneration(findNextMissingPokemonvalue) {
+    // debugger;
     if (findNextMissingPokemonvalue < 151) {
         renderPokemonGeneration(1, 151, 1);
-    } else if (findNextMissingPokemonvalue >= 151 && findNextMissingPokemonvalue < 251) {
-        renderPokemonGeneration(151, 251, 2);
-    } else if (findNextMissingPokemonvalue >= 251 && findNextMissingPokemonvalue < 387) {
-        renderPokemonGeneration(251, 387, 3);
+    } 
+    if (findNextMissingPokemonvalue > 151 && findNextMissingPokemonvalue < 251) {
+        renderPokemonGeneration(152, 252, 2);
+    } 
+    if (findNextMissingPokemonvalue > 252 && findNextMissingPokemonvalue < 387) {
+        renderPokemonGeneration(252, 387, 3);
     }
 }
 
@@ -83,8 +86,8 @@ async function getPokemonByUrl(onlypokemonurl) {
     return responseasJson;
 }
 
-async function checkPokemonGenerationDatas(number) {
-    switch (number) {
+async function checkPokemonGenerationStarts(generationNumber) {
+    switch (generationNumber) {
         case 1:
             if (!pokemonDict[2]) {
                 await loadPokemons(20, 2);
@@ -93,32 +96,25 @@ async function checkPokemonGenerationDatas(number) {
         case 2:
             if (!pokemonDict[152]) {
                 await loadPokemons(20, 151);
-                renderPokemonGeneration(151, 251, 2);
+                renderPokemonGeneration(152, 251, 2);
             }
             break;
         case 3:
             if (!pokemonDict[252]) {
                 await loadPokemons(20, 251);
-                renderPokemonGeneration(251, 387, 3);
+                renderPokemonGeneration(252, 387, 3);
             }
             break;
-        // Can be extended by several generations.
         default:
             console.log('default');
     }
 }
 
-async function renderPokemonGeneration(start, stop, pokemonGenerationNumber, current) {
-
-    currentshowedPokedex = current;
-    con(currentshowedPokedex);
-
-    checkPokemonGenerationDatas(pokemonGenerationNumber);
-
-
+async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
+    currentshowedPokedex = pokemonGenerationNumber;
+    checkPokemonGenerationStarts(currentshowedPokedex);
     let container = document.getElementById('container');
     container.innerHTML = '';
-
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
         if (pokemon) {
