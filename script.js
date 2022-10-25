@@ -38,7 +38,7 @@ async function findNextMissingPokemon(start) {
             } else {
                 return i;
             }
-        }  
+        }
     } else {
         return null;
     }
@@ -91,20 +91,20 @@ async function getPokemonByUrl(onlypokemonurl) {
 async function loadPokemonGeneration(start, stop, generationNumber) {
     switch (generationNumber) {
         case 1:
-            if (!pokemonDict[2]) { // nochmal weg diese Zeile
-                await loadPokemons(20, 1);
-            }
-        break;
+
+            await loadPokemons(20, 1);
+
+            break;
         case 2:
-            if (!pokemonDict[152]) {
-                await loadPokemons(20, 151);
-            }
-        break;
+
+            await loadPokemons(20, 151);
+
+            break;
         case 3:
-            if (!pokemonDict[252]) {
-                await loadPokemons(20, 251);
-            }
-        break;
+
+            await loadPokemons(20, 251);
+
+            break;
     }
 
     renderPokemonGeneration(start, stop, generationNumber);
