@@ -28,3 +28,27 @@ window.onscroll = async function (ev) {
         currentloading = false;
     } 
 };
+
+async function checkPokemonGenerationStarts(generationNumber) {
+    switch (generationNumber) {
+        case 1:
+            if (!pokemonDict[2]) {
+                await loadPokemons(20, 2);
+            }
+            break;
+        case 2:
+            if (!pokemonDict[152]) {
+                await loadPokemons(20, 151);
+                renderPokemonGeneration(152, 251, 2);
+            }
+            break;
+        case 3:
+            if (!pokemonDict[252]) {
+                await loadPokemons(20, 251);
+                renderPokemonGeneration(252, 387, 3);
+            }
+            break;
+        default:
+            console.log('default');
+    }
+}
