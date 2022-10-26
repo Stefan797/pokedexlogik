@@ -122,12 +122,20 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     container.innerHTML = '';
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
+        let name = pokemon['species']['url'];
+        con(name);
 
+        let pokemonNameInGerman = name;
+        let resp = await fetch(pokemonNameInGerman);
+        let pespAsJson = await resp.json();
+        console.log(pespAsJson);
+
+        pokemonSpecies = pespAsJson;
         // let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
         // console.log(pokemonImgDict);
         
         if (pokemon) {
-            container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
+            container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemonSpecies['names'][5]['name']}</div></div>`;
         }
 
         
