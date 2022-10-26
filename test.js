@@ -16,12 +16,12 @@ async function init() {
     let responseasJsonFirstPokemon = await responseFirstPokemon.json();
     console.log(responseasJsonFirstPokemon);
 
-    let a = 'https://pokeapi.co/api/v2/pokemon-species/4/';
-    let b = await fetch(a);
-    let c = await b.json();
-    console.log(c);
+    let pokemonNameInGerman = 'https://pokeapi.co/api/v2/pokemon-species/4/';
+    let resp = await fetch(pokemonNameInGerman);
+    let pespAsJson = await resp.json();
+    console.log(pespAsJson);
 
-    console.log(c['names'][5]['name']);
+    console.log(pespAsJson['names'][5]['name']);
 
 
     // let pokemonLanguage = 'https://pokeapi.co/api/v2/language/6/';
