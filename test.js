@@ -37,7 +37,7 @@ async function init() {
     // con(resptest1);
 
     // con(pokemon['abilities'][1]['ability']['url']);
-
+    let name = pokemon['species']['url'];
     let pokemonNameInGerman = 'https://pokeapi.co/api/v2/pokemon-species/4/';
     let resp = await fetch(pokemonNameInGerman);
     let pespAsJson = await resp.json();
