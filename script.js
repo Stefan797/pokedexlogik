@@ -40,7 +40,7 @@ async function findNextMissingPokemon(start) {
             } else {
                 return i;
             }
-        }  
+        }
     } else {
         return null;
     }
@@ -99,22 +99,33 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
             if (!pokemonDict[152]) {
                 await loadPokemons(20, 1);
             }
-        break;
+            break;
         case 2:
             if (!pokemonDict[152]) {
                 await loadPokemons(20, 151);
             }
-        break;
+            break;
         case 3:
             if (!pokemonDict[252]) {
                 await loadPokemons(20, 251);
             }
-            
-        break;
+
+            break;
     }
 
     renderPokemonGeneration(start, stop, generationNumber);
 }
+
+// loadOhterPokemonJson(pokemon) {
+    // let pokemonType = pokemon['types'][0]['type']['url'];
+    // let type = pokemonType;
+    // let test2 = await fetch(type);
+    // let resptest2 = await test2.json();
+    // con(resptest2);
+    // let pokemontype = resptest2;
+    // let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
+    // console.log(pokemonImgDict);
+// }
 
 async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     currentShowedPokedex = pokemonGenerationNumber;
@@ -122,22 +133,14 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     container.innerHTML = '';
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
-        let name = pokemon['species']['url'];
-        con(name);
 
-        let pokemonNameInGerman = name;
-        let resp = await fetch(pokemonNameInGerman);
+        let pokemonSpeciesLink = pokemon['species']['url'];
+        let resp = await fetch(pokemonSpeciesLink);
         let pespAsJson = await resp.json();
-        console.log(pespAsJson);
+        let pokemonSpecies = pespAsJson;
 
-        pokemonSpecies = pespAsJson;
-        // let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
-        // console.log(pokemonImgDict);
-        
         if (pokemon) {
             container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemonSpecies['names'][5]['name']}</div></div>`;
         }
-
-        
     }
 }
