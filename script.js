@@ -1,4 +1,5 @@
 let pokemonDict = {};
+let pokemonImgDict = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
 
@@ -10,9 +11,16 @@ async function init() {
 window.onscroll = async function (ev) {
     if (hasReachedPageBottom() && !currentloading) {
         currentloading = true;
+<<<<<<< HEAD
         let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
         if (nextPokemonId != null) {
             initializeNextFoundPokemons(nextPokemonId);
+=======
+        // debugger;
+        let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
+        if (nextPokemonId != null) {
+            initializeFoundPokemon(nextPokemonId);
+>>>>>>> origin
         }
         currentloading = false;
     }
@@ -23,10 +31,10 @@ function checkfindNextMissingPokemonStartValue() {
         return 1;
     }
     if (currentShowedPokedex == 2) {
-        return 151;
+        return 152;
     }
     if (currentShowedPokedex == 3) {
-        return 251;
+        return 252;
     }
 }
 
@@ -42,13 +50,18 @@ async function findNextMissingPokemon(start) {
     } else {
         return null;
     }
+    // debugger;
 }
 
 /**
  * 
  * @param {number} nextPokemonId - ID of next Pokemon 
  */
+<<<<<<< HEAD
 async function initializeNextFoundPokemons(nextPokemonId) {
+=======
+async function initializeFoundPokemon(nextPokemonId) {
+>>>>>>> origin
     let newStartValue = nextPokemonId - 1;
     await loadPokemons(20, newStartValue);
     renderCurrentGeneration(nextPokemonId);
@@ -91,6 +104,7 @@ async function getPokemonByUrl(onlypokemonurl) {
 async function loadPokemonGeneration(start, stop, generationNumber) {
     switch (generationNumber) {
         case 1:
+<<<<<<< HEAD
 
             await loadPokemons(20, 1);
 
@@ -103,12 +117,38 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
         case 3:
 
             await loadPokemons(20, 251);
+=======
+            if (!pokemonDict[152]) {
+                await loadPokemons(20, 1);
+            }
+            break;
+        case 2:
+            if (!pokemonDict[152]) {
+                await loadPokemons(20, 151);
+            }
+            break;
+        case 3:
+            if (!pokemonDict[252]) {
+                await loadPokemons(20, 251);
+            }
+>>>>>>> origin
 
             break;
     }
 
     renderPokemonGeneration(start, stop, generationNumber);
 }
+
+// loadOhterPokemonJson(pokemon) {
+    // let pokemonType = pokemon['types'][0]['type']['url'];
+    // let type = pokemonType;
+    // let test2 = await fetch(type);
+    // let resptest2 = await test2.json();
+    // con(resptest2);
+    // let pokemontype = resptest2;
+    // let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
+    // console.log(pokemonImgDict);
+// }
 
 async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     currentShowedPokedex = pokemonGenerationNumber;
@@ -117,7 +157,11 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
         if (pokemon) {
-            container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemon['name']}</div></div>`;
+            let pokemonSpeciesLink = pokemon['species']['url'];
+            let resp = await fetch(pokemonSpeciesLink);
+            let pespAsJson = await resp.json();
+            let pokemonSpecies = pespAsJson;
+            container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemonSpecies['names'][5]['name']}</div></div>`;
         }
     }
 }
