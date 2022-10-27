@@ -11,16 +11,10 @@ async function init() {
 window.onscroll = async function (ev) {
     if (hasReachedPageBottom() && !currentloading) {
         currentloading = true;
-<<<<<<< HEAD
-        let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
-        if (nextPokemonId != null) {
-            initializeNextFoundPokemons(nextPokemonId);
-=======
         // debugger;
         let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
         if (nextPokemonId != null) {
             initializeFoundPokemon(nextPokemonId);
->>>>>>> origin
         }
         currentloading = false;
     }
@@ -57,11 +51,7 @@ async function findNextMissingPokemon(start) {
  * 
  * @param {number} nextPokemonId - ID of next Pokemon 
  */
-<<<<<<< HEAD
-async function initializeNextFoundPokemons(nextPokemonId) {
-=======
 async function initializeFoundPokemon(nextPokemonId) {
->>>>>>> origin
     let newStartValue = nextPokemonId - 1;
     await loadPokemons(20, newStartValue);
     renderCurrentGeneration(nextPokemonId);
@@ -104,20 +94,6 @@ async function getPokemonByUrl(onlypokemonurl) {
 async function loadPokemonGeneration(start, stop, generationNumber) {
     switch (generationNumber) {
         case 1:
-<<<<<<< HEAD
-
-            await loadPokemons(20, 1);
-
-            break;
-        case 2:
-
-            await loadPokemons(20, 151);
-
-            break;
-        case 3:
-
-            await loadPokemons(20, 251);
-=======
             if (!pokemonDict[152]) {
                 await loadPokemons(20, 1);
             }
@@ -131,7 +107,6 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
             if (!pokemonDict[252]) {
                 await loadPokemons(20, 251);
             }
->>>>>>> origin
 
             break;
     }
