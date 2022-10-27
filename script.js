@@ -1,10 +1,12 @@
 let pokemonDict = {};
 let pokemonImgDict = [];
+let pokemonSpiecesDict = {};
 let currentShowedPokedex = 1;
 let currentloading = false;
 
 async function init() {
     await loadPokemons(20, 0);
+    await loadPokemonsSpieces(20, 0);
     renderPokemonGeneration(1, 151, 1);
 }
 
@@ -115,14 +117,21 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
 }
 
 // loadOhterPokemonJson(pokemon) {
-    // let pokemonType = pokemon['types'][0]['type']['url'];
-    // let type = pokemonType;
-    // let test2 = await fetch(type);
-    // let resptest2 = await test2.json();
-    // con(resptest2);
-    // let pokemontype = resptest2;
-    // let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
-    // console.log(pokemonImgDict);
+// let pokemonType = pokemon['types'][0]['type']['url'];
+// let type = pokemonType;
+// let test2 = await fetch(type);
+// let resptest2 = await test2.json();
+// con(resptest2);
+// let pokemontype = resptest2;
+// let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
+// console.log(pokemonImgDict);
+// }
+
+// function test(params) {
+//     let pokemonSpeciesLink = pokemon['species']['url'];
+//     let resp = await fetch(pokemonSpeciesLink);
+//     let pespAsJson = await resp.json();
+//     let pokemonSpecies = pespAsJson;
 // }
 
 async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
