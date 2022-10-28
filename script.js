@@ -6,7 +6,7 @@ let currentloading = false;
 
 async function init() {
     await loadPokemons(20, 0);
-    await loadPokemonsSpieces(20, 0);
+    // await loadPokemonsSpieces(20, 0);
     renderPokemonGeneration(1, 151, 1);
 }
 
