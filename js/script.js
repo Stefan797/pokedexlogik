@@ -3,6 +3,7 @@ let pokemonImgDict = [];
 let pokemonSpiecesDict = {};
 let currentShowedPokedex = 1;
 let currentloading = false;
+let SPECIES_CACHE = {};
 
 async function init() {
     await loadPokemons(20, 0);
@@ -116,23 +117,21 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
     renderPokemonGeneration(start, stop, generationNumber);
 }
 
-// loadOhterPokemonJson(pokemon) {
-// let pokemonType = pokemon['types'][0]['type']['url'];
-// let type = pokemonType;
-// let test2 = await fetch(type);
-// let resptest2 = await test2.json();
-// con(resptest2);
-// let pokemontype = resptest2;
-// let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
-// console.log(pokemonImgDict);
-// }
+async function loadSpecies(pokemon){
+    let url = pokemon['species']['url'];
 
-// function test(params) {
-//     let pokemonSpeciesLink = pokemon['species']['url'];
-//     let resp = await fetch(pokemonSpeciesLink);
-//     let pespAsJson = await resp.json();
-//     let pokemonSpecies = pespAsJson;
-// }
+    // 1. Fall - Cached
+    // Returnen aus dem Cache
+    if(SPECIES_CACHE[url]) {
+        return SPECIES_CACHE[url];
+    }
+    // 2. Fall - Nicht im Cache - Laden von Server
+    let resp = await fetch(url);
+    let pespAsJson = await resp.json();
+    let pokemonSpecies = pespAsJson;
+    SPECIES_CACHE[url] = pokemonSpecies;
+    return pokemonSpecies;
+}
 
 async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     currentShowedPokedex = pokemonGenerationNumber;
@@ -141,11 +140,8 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
         if (pokemon) {
-            let pokemonSpeciesLink = pokemon['species']['url'];
-            let resp = await fetch(pokemonSpeciesLink);
-            let pespAsJson = await resp.json();
-            let pokemonSpecies = pespAsJson;
-            container.innerHTML += `<div class="pokemoncontainer"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemonSpecies['names'][5]['name']}</div></div>`;
+            let pokemonSpecies = await loadSpecies(pokemon);
+            container.innerHTML += `<div class="pokemon-box distances"><img src="${pokemon['sprites']['other']['dream_world']['front_default']}"><div>${pokemonSpecies['names'][5]['name']}</div></div>`;
         }
     }
 }

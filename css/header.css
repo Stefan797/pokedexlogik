@@ -1,0 +1,23 @@
+.header {
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    height: 80%;
+    width: 50px;
+}
+
+.button-box {
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.button-box button {
+    height: 3vh;
+    background-color: #2A2B2D;
+    color: white;
+    border-radius: 8px;
+}

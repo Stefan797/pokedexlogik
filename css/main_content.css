@@ -1,0 +1,22 @@
+.main_properties {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('../img/background.jpg');
+    width: 90%;
+}
+
+.pokemon-box {
+    border: 2px solid red;
+    display: flex;
+    width: 18%;
+    height: 300px;
+}
+
+.distances {
+    margin: 8px 1.25% 8px 1.25%; /* margin order: top, right, bottom, and left */
+}
+
+.pokemon-box img {
+    width: 200px;
+    height: 200px;
+}
