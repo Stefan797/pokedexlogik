@@ -1,5 +1,5 @@
 .main_properties {
-    margin-top: 8vh;
+    margin-top: 12vh;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -22,4 +22,10 @@
 .pokemon-box img {
     width: 70%;
     height: 60%;
+}
+
+.pokemon-name span {
+    font-size: 28px;
+    color: #2197FF;
+    margin-top: 10px;
 }

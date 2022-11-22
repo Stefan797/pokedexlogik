@@ -4,15 +4,15 @@ async function init() {
     // let response = await fetch(apilink);
     // let responseasJson = await response.json();
     // console.log(responseasJson);
-    
 
-    let pokemonImg = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg';
-    let pokemonImgpath = responseImg['url'] ;
-    pokemonImgpath = await fetch(pokemonImg);
-    console.log(responseImg['url']);
 
-    let containerContent = document.getElementById('container');
-    containerContent.innerHTML += `<img src="${responseImg['url']}">`;
+    // let pokemonImg = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg';
+    // let pokemonImgpath = responseImg['url'];
+    // pokemonImgpath = await fetch(pokemonImg);
+    // console.log(responseImg['url']);
+
+    // let containerContent = document.getElementById('container');
+    // containerContent.innerHTML += `<img src="${responseImg['url']}">`;
 
 
 
@@ -64,20 +64,34 @@ async function init() {
 
 
     // loadOhterPokemonJson(pokemon) {
-// let pokemonType = pokemon['types'][0]['type']['url'];
-// let type = pokemonType;
-// let test2 = await fetch(type);
-// let resptest2 = await test2.json();
-// con(resptest2);
-// let pokemontype = resptest2;
-// let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
-// console.log(pokemonImgDict);
-// }
+    // let pokemonType = pokemon['types'][0]['type']['url'];
+    // let type = pokemonType;
+    // let test2 = await fetch(type);
+    // let resptest2 = await test2.json();
+    // con(resptest2);
+    // let pokemontype = resptest2;
+    // let pokemonImgDict = pokemon['sprites']['other']['dream_world']['front_default'];
+    // console.log(pokemonImgDict);
+    // }
 
-// function test(params) {
-//     let pokemonSpeciesLink = pokemon['species']['url'];
-//     let resp = await fetch(pokemonSpeciesLink);
-//     let pespAsJson = await resp.json();
-//     let pokemonSpecies = pespAsJson;
-// }
+    // function test(params) {
+    //     let pokemonSpeciesLink = pokemon['species']['url'];
+    //     let resp = await fetch(pokemonSpeciesLink);
+    //     let pespAsJson = await resp.json();
+    //     let pokemonSpecies = pespAsJson;
+    // }
+
+    // let headerpokemons = [1, 2, 3, 4, 5, 6];
+
+    // function headerpokemon() {
+    //     for (var x in headerpokemons) {
+    //         setInterval(function () {
+    //             const headerpokemon = pokemonDict[x];
+    //             if (headerpokemon) {
+    //                 imagepath = headerpokemon['sprites']['other']['dream_world']['front_default']
+    //                 document.getElementById('headerpokemon').src = imagepath;
+    //             }
+    //         }, 1000);
+    //     }
+    // }
 }
