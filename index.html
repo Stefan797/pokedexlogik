@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="script.js"></script>
-    <script src="help.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pokedex.css">
+    </head>
 <body onload="init()">
+    
+    <!-- <div id="first_header" class="first_header">
+        <div onclick="closeheaders()">X</div>
+    </div> -->
 
-    <div class="header">
-        <button onclick="loadPokemonGeneration(1, 151, 1)">1</button>
-        <button onclick="loadPokemonGeneration(151, 251, 2)">2</button>
-        <button onclick="loadPokemonGeneration(251, 387, 3)">3</button>
+    <div id="header" class="header page_padding">
+        <div>
+            <img id="headerpokemon" src="img/test.jpg">
+        </div>
+        
+        <div class="button-box">
+            <button onclick="loadPokemonGeneration(1, 151, 1)">Gen 1</button>
+            <button onclick="loadPokemonGeneration(151, 251, 2)">Gen 2</button>
+            <button onclick="loadPokemonGeneration(251, 387, 3)">Gen 3</button>
+        </div>
     </div>
+  
+    
 
-
-    <div id="container"></div>
+    <div class="main_properties page_padding" id="container"></div>
 </body>
 </html>

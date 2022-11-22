@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.page_padding {
+    padding: 0 5% 0 5%; /* padding order: top right bottom left */
+}
+
+/* .d-none {
+    display: none !important;
+} */
