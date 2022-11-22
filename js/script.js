@@ -9,6 +9,19 @@ async function init() {
     await loadPokemons(20, 0);
     // await loadPokemonsSpieces(20, 0);
     renderPokemonGeneration(1, 151, 1);
+    headerpokemon();
+}
+
+async function headerpokemon() {
+    for (let i = 1; i < 10; i++) {
+        const headerpokemon = pokemonDict[i];
+        if (headerpokemon[6]) {
+            headerpokemon['sprites']['other']['dream_world']['front_default'] = imagepath;
+            // imagepath = "headerpokemon['sprites']['other']['dream_world']['front_default']"
+            document.getElementById('headerpokemon').src=imagepath;
+            console.log(imagepath);
+        }
+    }
 }
 
 window.onscroll = async function (ev) {

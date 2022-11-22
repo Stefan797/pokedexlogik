@@ -9,13 +9,17 @@
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main_content.css">
-</head>
+    <link rel="stylesheet" href="css/pokedex.css">
+    </head>
 <body onload="init()">
+    
+    <!-- <div id="first_header" class="first_header">
+        <div onclick="closeheaders()">X</div>
+    </div> -->
 
-    <div class="header page_padding">
+    <div id="header" class="header page_padding">
         <div>
-            <img src="../img/background.jpg">
+            <img id="headerpokemon" src="img/test.jpg">
         </div>
         
         <div class="button-box">
@@ -24,9 +28,7 @@
             <button onclick="loadPokemonGeneration(251, 387, 3)">Gen 3</button>
         </div>
     </div>
-    <div class="background">
-        <img src="img/background.jpg">
-    </div>
+  
     
 
     <div class="main_properties page_padding" id="container"></div>

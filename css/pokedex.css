@@ -1,0 +1,25 @@
+.main_properties {
+    margin-top: 8vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pokemon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 35vh;
+    width: 15%;
+    background-color: #E0E0E0;
+}
+
+.distances {
+    margin: 8px 1.25% 8px 1.25%; /* margin order: top, right, bottom, and left */
+}
+
+.pokemon-box img {
+    width: 70%;
+    height: 60%;
+}
