@@ -1,8 +1,20 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 90vw;
+}
+
+.background img {
+    width: 90vw;
+}
+
 .main_properties {
     display: flex;
     flex-wrap: wrap;
-    background-image: url('../img/background.jpg');
-    width: 90%;
+    /* background-image: url('../img/background.jpg'); */
+    /* width: 90%; */
 }
 
 .pokemon-box {

@@ -12,7 +12,10 @@ async function init() {
     console.log(responseImg['url']);
 
     let containerContent = document.getElementById('container');
-    containerContent.innerHTML = `<img src="${responseImg['url']}">`;
+    containerContent.innerHTML += `<img src="${responseImg['url']}">`;
+
+
+
     // console.log(responseasJson['count']);
     // console.log(responseasJson['next']);
     // console.log(responseasJson['previous']);
