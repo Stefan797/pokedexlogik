@@ -4,8 +4,9 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     container.innerHTML = '';
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
-        if (pokemon) {
-            let pokemonSpecies = await loadSpecies(pokemon);
+        const pokemonSpecies = pokemonSpeciesDict[i];
+        if (pokemon && pokemonSpecies) {
+            // let pokemonSpecies = await loadSpecies(pokemon);
             container.innerHTML += `
             <div class="pokemon-box distances">
             <img src="${pokemon['sprites']['other']['dream_world']['front_default']}">
