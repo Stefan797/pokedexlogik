@@ -7,11 +7,17 @@ let SPECIES_CACHE = {};
 
 async function init() {
     await loadPokemons(20, 0);
-    // debugger;
     // await loadPokemonsSpieces(20, 0);
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();
 }
+
+// async function loadPokemonsSpieces() {
+//     let pokemonapispeciesurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
+//     let response = await fetch(pokemonapispeciesurl);
+//     let responseasJson = await response.json();
+//     console.log(responseasJson);
+// }
 
 async function loadPokemons(amountofnewloadedPokemons, start) {
     let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
@@ -22,6 +28,7 @@ async function loadPokemons(amountofnewloadedPokemons, start) {
         const element = responseasJson.results[index];
         const pokemon = await getPokemonByUrl(element.url);
         pokemonDict[pokemon['id']] = pokemon;
+        console.log(pokemon['id']);
     }
 }
 

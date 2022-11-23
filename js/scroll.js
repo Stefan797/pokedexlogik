@@ -1,15 +1,38 @@
 window.onscroll = async function (ev) {
-    debugger;
-    if (hasReachedPageBottom() && !currentloading) {
+    // debugger;
+    if (hasReachedPageBottom() && !currentloading && checkGenerationLoadingEndpoint()) {
         currentloading = true;
-        // debugger;
-        let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
-        if (nextPokemonId != null) {
-            initializeFoundPokemon(nextPokemonId);
-        }
+        await nextsteps();
         currentloading = false;
     }
 };
+
+async function nextsteps() {
+    let nextPokemonId = await findNextMissingPokemon(checkfindNextMissingPokemonStartValue());
+    if (nextPokemonId != null) {
+        await initializeFoundPokemon(nextPokemonId);
+    }
+}
+
+function checkGenerationLoadingEndpoint() {
+    switch (currentShowedPokedex) {
+        case 1:
+            if (!pokemonDict[151]) {
+                return true;
+            }
+            break;
+        case 2:
+            if (!pokemonDict[251]) {
+                return true;
+            }
+            break;
+        case 3:
+            if (!pokemonDict[387]) {
+                return true;
+            }
+            break;
+    }
+}
 
 function hasReachedPageBottom() {
     return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
@@ -46,7 +69,7 @@ async function findNextMissingPokemon(start) {
  * 
  * @param {number} nextPokemonId - ID of next Pokemon 
  */
- async function initializeFoundPokemon(nextPokemonId) {
+async function initializeFoundPokemon(nextPokemonId) {
     let newStartValue = nextPokemonId - 1;
     await loadPokemons(20, newStartValue);
     renderCurrentGeneration(nextPokemonId);
