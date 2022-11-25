@@ -1,5 +1,5 @@
 .main_properties {
-    margin-top: 8vh;
+    margin-top: 12vh;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -15,6 +15,10 @@
     background-color: #E0E0E0;
 }
 
+.pokemon-box:hover {
+    cursor: pointer;
+}
+
 .distances {
     margin: 8px 1.25% 8px 1.25%; /* margin order: top, right, bottom, and left */
 }
@@ -22,4 +26,10 @@
 .pokemon-box img {
     width: 70%;
     height: 60%;
+}
+
+.pokemon-name span {
+    font-size: 28px;
+    color: #2197FF;
+    margin-top: 10px;
 }

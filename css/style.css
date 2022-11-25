@@ -7,6 +7,20 @@ body {
     padding: 0 5% 0 5%; /* padding order: top right bottom left */
 }
 
-/* .d-none {
+.d-none {
     display: none !important;
-} */
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.z-index-minus {
+    z-index: -1;
+}
