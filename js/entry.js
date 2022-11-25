@@ -6,7 +6,8 @@ function closesingleEntry() {
     singleEntryContent.classList.add('d-none');
 }
 
-// function getHtmlforSingleEntry() {
-//     return `
-//     `;
-// }
+function getHtmlforSingleEntry(entrypokemon) {
+    return `${entrypokemon['id']}
+    <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
+    `;
+}

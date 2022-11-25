@@ -12,7 +12,13 @@ async function init() {
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();
     // debugger;
-    // showdifferentUserInformations();
+    showdifferentUserInformations();
+    // setInterval(() => {
+    //     var refreshIntervalId = setInterval(fname, 10000);
+
+    // /* later */
+    // clearInterval(refreshIntervalId);
+    // }, 50000);
 }
 
 async function loadPokemonsSpieces(amountofnewloadedPokemons, start) {

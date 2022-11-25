@@ -10,15 +10,15 @@
 .animation {
     width: 100%;
     height: 100%;
-    /* transform: translateX(0);
-    animation: loopanimationUserInfos 30s linear infinite; */
+    transform: translateX(0);
+    animation: loopanimationUserInfos 30s linear infinite;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
 .info-text {
-    display: none;
+    /* display: none; */
     color: #2197FF;
     font-size: 18px;
 }

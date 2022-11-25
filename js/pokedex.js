@@ -23,11 +23,15 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
 
 function opensingleEntry(pokemonID) {
     console.log(pokemonID);
-    debugger;
+    console.log(pokemonDict[pokemonID]);
+    const entrypokemon = pokemonDict[pokemonID];
+
+    // debugger;
     document.getElementById('background_container').classList.remove('z-index-minus');
     document.getElementById('first_header').classList.add('d-none');
     document.getElementById('header').classList.add('d-none');
     let singleEntryContent = document.getElementById('singleEntry');
     singleEntryContent.classList.remove('d-none');
-    singleEntryContent.innerHTML += getHtmlforSingleEntry();
+    singleEntryContent.innerHTML = '';
+    singleEntryContent.innerHTML += getHtmlforSingleEntry(entrypokemon);
 }
