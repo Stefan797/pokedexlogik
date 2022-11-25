@@ -8,31 +8,41 @@
 
     <script src="js/script.js"></script>
     <script src="js/scroll.js"></script>
-    <script src="js/render_pokedex.js"></script>
-    <script src="js/load_spezials.js"></script>
+    <script src="js/pokedex.js"></script>
+    <script src="js/entry.js"></script>
+    <script src="js/spezials.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/pokedex.css">
+    <link rel="stylesheet" href="css/entry.css">
     </head>
 <body onload="init()">
+
+    <div onclick="closesingleEntry()" class="background-container center z-index-minus" id="background_container">
+        <div class="singleEntry center d-none" id="singleEntry"></div>
+    </div>
     
-    <div class="first_header">
-        <div>X</div>
+    <div id="first_header" class="first_header">
+        <div class="animation">
+            <span class="info-text" id="info-text">Click on the glumanda to return to the top of the page each time.</span>
+        </div>
     </div>
 
     <div id="header" class="header page_padding">
         <div>
-            <img id="headerpokemon" src="">
+            <img onclick="comeUpToSide()" id="headerpokemon" class="d-none cursor-pointer" src="">
         </div>
         
         <div class="button-box">
             <button onclick="loadPokemonGeneration(1, 151, 1)">Gen 1</button>
-            <button onclick="loadPokemonGeneration(151, 251, 2)">Gen 2</button>
-            <button onclick="loadPokemonGeneration(251, 387, 3)">Gen 3</button>
+            <button onclick="loadPokemonGeneration(152, 251, 2)">Gen 2</button>
+            <button onclick="loadPokemonGeneration(252, 387, 3)">Gen 3</button>
         </div>
     </div>
   
     <div class="main_properties page_padding" id="container"></div>
+    
+    
 </body>
 </html>

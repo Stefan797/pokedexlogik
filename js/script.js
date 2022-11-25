@@ -4,58 +4,29 @@ let pokemonSpeciesDict = {};
 
 let currentShowedPokedex = 1;
 let currentloading = false;
-let lastlength = 0;
+// let lastlength = 0;
 
 async function init() {
     await loadPokemons(20, 0);
-    await loadPokemonsSpieces(22, 1);
+    await loadPokemonsSpieces(20, 0);
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();
+    // debugger;
+    // showdifferentUserInformations();
 }
 
-async function loadPokemonsSpieces(addlength, newForLoopStartValue) {
-    // debugger;
-    if (!pokemonDict[21]) {
+async function loadPokemonsSpieces(amountofnewloadedPokemons, start) {
+    let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon-species?limit=${amountofnewloadedPokemons}&offset=${start}`;
+    let response = await fetch(pokemonapiurl);
+    let responseasJson = await response.json();
 
-        let newlength = addlength - 1;
-        let start = newForLoopStartValue;
-
-        for (let s = start; s < newlength; s++) {
-
-            let pokemonapispeciesurl = `https://pokeapi.co/api/v2/pokemon-species/${s}/`;
-            let response = await fetch(pokemonapispeciesurl);
-            let responseasJson = await response.json();
-            // console.log(responseasJson);
-            const element = responseasJson;
-            // const pokemonSpe = responseasJson[element];
-            pokemonSpeciesDict[element['id']] = element;
-            console.log(element['id']);
-        }
-
-    } else if (pokemonDict[21]) {
-        debugger;
-
-        let newlength = 21 + addlength;
-        lastlength = newlength;
-        let start = newForLoopStartValue + 1;
-
-        for (let s = start; s < newlength; s++) {
-
-            let pokemonapispeciesurl = `https://pokeapi.co/api/v2/pokemon-species/${s}/`;
-            let response = await fetch(pokemonapispeciesurl);
-            let responseasJson = await response.json();
-            // console.log(responseasJson);
-            const element = responseasJson;
-            // const pokemonSpe = responseasJson[element];
-            pokemonSpeciesDict[element['id']] = element;
-            console.log(element['id']);
-        }
-
-
+    for (let index = 0; index < responseasJson.results.length; index++) {
+        const element = responseasJson.results[index];
+        const pokemon = await getPokemonByUrl(element.url);
+        pokemonSpeciesDict[pokemon['id']] = pokemon;
+        console.log(pokemon['id']);
     }
 }
-
-
 
 async function loadPokemons(amountofnewloadedPokemons, start) {
     let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
@@ -77,20 +48,24 @@ async function getPokemonByUrl(onlypokemonurl) {
 }
 
 async function loadPokemonGeneration(start, stop, generationNumber) {
+    window.scrollTo(0, 0);
     switch (generationNumber) {
         case 1:
             if (!pokemonDict[152]) {
                 await loadPokemons(20, 1);
+                await loadPokemonsSpieces(20, 1)
             }
             break;
         case 2:
             if (!pokemonDict[152]) {
                 await loadPokemons(20, 151);
+                await loadPokemonsSpieces(20, 151);
             }
             break;
         case 3:
             if (!pokemonDict[252]) {
                 await loadPokemons(20, 251);
+                await loadPokemonsSpieces(20, 251);
             }
 
             break;

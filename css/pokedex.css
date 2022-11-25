@@ -15,6 +15,10 @@
     background-color: #E0E0E0;
 }
 
+.pokemon-box:hover {
+    cursor: pointer;
+}
+
 .distances {
     margin: 8px 1.25% 8px 1.25%; /* margin order: top, right, bottom, and left */
 }

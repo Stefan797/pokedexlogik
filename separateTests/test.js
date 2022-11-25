@@ -1,5 +1,11 @@
 async function init() {
     console.log('Das ist eine separate HTML, um die API zu testen!');
+
+    let apilink = `https://pokeapi.co/api/v2/pokemon-species?limit=10&offset=0`;
+    let response = await fetch(apilink);
+    let responseasJson = await response.json();
+    console.log(responseasJson);
+    
     // let apilink = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0';
     // let response = await fetch(apilink);
     // let responseasJson = await response.json();

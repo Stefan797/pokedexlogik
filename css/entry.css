@@ -1,0 +1,18 @@
+.background-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100%;
+   /* background-color: rgba(0, 0, 0, 0.8); */
+}
+.singleEntry {
+   height: 80%;
+   width: 20%;
+   background-color: lightcoral;
+   z-index: 1; 
+}
+
+.singleEntry img {
+   z-index: 3;
+}

@@ -70,7 +70,7 @@ async function findNextMissingPokemon(start) {
  * @param {number} nextPokemonId - ID of next Pokemon 
  */
 async function initializeFoundPokemon(nextPokemonId) {
-    debugger;
+    // debugger;
     let newStartValue = nextPokemonId - 1;
     await loadPokemons(20, newStartValue);
     await loadPokemonsSpieces(20, newStartValue);
