@@ -13,7 +13,7 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
 
 function getHtmlforPokedex(pokemon, pokemonSpecies) {
     return `
-    <div onclick="opensingleEntry()" class="pokemon-box cursor-pointer distances">
+    <div id="pokemon-${pokemon['id']}" onclick="opensingleEntry()" class="pokemon-box cursor-pointer distances">
     <img src="${pokemon['sprites']['other']['dream_world']['front_default']}">
     <div class="pokemon-name">
     <span>${pokemonSpecies['names'][5]['name']}</span>
