@@ -1,10 +1,10 @@
 async function init() {
     console.log('Das ist eine separate HTML, um die API zu testen!');
 
-    let apilink = `https://pokeapi.co/api/v2/pokemon-species?limit=10&offset=0`;
-    let response = await fetch(apilink);
-    let responseasJson = await response.json();
-    console.log(responseasJson);
+    // let apilink = `https://pokeapi.co/api/v2/pokemon-species?limit=10&offset=0`;
+    // let response = await fetch(apilink);
+    // let responseasJson = await response.json();
+    // console.log(responseasJson);
     
     // let apilink = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0';
     // let response = await fetch(apilink);
@@ -29,10 +29,10 @@ async function init() {
     // console.log(responseasJson.results[0]['name']);
     // console.log(responseasJson.results[0]['url']);
 
-    // let firstpokemon = 'https://pokeapi.co/api/v2/pokemon/2/';
-    // let responseFirstPokemon = await fetch(firstpokemon);
-    // let responseasJsonFirstPokemon = await responseFirstPokemon.json();
-    // console.log(responseasJsonFirstPokemon);
+    let firstpokemon = 'https://pokeapi.co/api/v2/pokemon/25/';
+    let responseFirstPokemon = await fetch(firstpokemon);
+    let responseasJsonFirstPokemon = await responseFirstPokemon.json();
+    console.log(responseasJsonFirstPokemon);
 
     // let typeGerman = 'https://pokeapi.co/api/v2/type/12/';
     // let test2 = await fetch(typeGerman);

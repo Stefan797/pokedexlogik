@@ -33,6 +33,14 @@
     }
 }
 
+.entryheader {
+    height: 4vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .header {
     position: fixed;
     top: 4vh;
@@ -49,6 +57,10 @@
 .header img {
     height: 40%;
     width: 70%;
+}
+
+.mainheadercontent {
+    display: flex;
 }
 
 .button-box button {

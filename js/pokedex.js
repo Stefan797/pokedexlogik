@@ -22,16 +22,14 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
 }
 
 function opensingleEntry(pokemonID) {
-    console.log(pokemonID);
-    console.log(pokemonDict[pokemonID]);
     const entrypokemon = pokemonDict[pokemonID];
-
-    // debugger;
+    const entrypokemonSpecies = pokemonSpeciesDict[pokemonID];
     document.getElementById('background_container').classList.remove('z-index-minus');
     document.getElementById('first_header').classList.add('d-none');
     document.getElementById('header').classList.add('d-none');
+    designEntryheader(pokemonID);
     let singleEntryContent = document.getElementById('singleEntry');
     singleEntryContent.classList.remove('d-none');
     singleEntryContent.innerHTML = '';
-    singleEntryContent.innerHTML += getHtmlforSingleEntry(entrypokemon);
+    singleEntryContent.innerHTML += getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies);
 }

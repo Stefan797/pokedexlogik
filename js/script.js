@@ -1,10 +1,8 @@
 let pokemonDict = {};
 let pokemonSpeciesDict = {};
-// let SPECIES_CACHE = {};
-
+let headerpokemonArray = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
-// let lastlength = 0;
 
 async function init() {
     await loadPokemons(20, 0);
@@ -13,12 +11,18 @@ async function init() {
     headerpokemon();
     // debugger;
     showdifferentUserInformations();
-    // setInterval(() => {
-    //     var refreshIntervalId = setInterval(fname, 10000);
+}
 
-    // /* later */
-    // clearInterval(refreshIntervalId);
-    // }, 50000);
+async function loadPokemons(amountofnewloadedPokemons, start) {
+    let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
+    let response = await fetch(pokemonapiurl);
+    let responseasJson = await response.json();
+
+    for (let index = 0; index < responseasJson.results.length; index++) {
+        const element = responseasJson.results[index];
+        const pokemon = await getPokemonByUrl(element.url);
+        pokemonDict[pokemon['id']] = pokemon;
+    }
 }
 
 async function loadPokemonsSpieces(amountofnewloadedPokemons, start) {
@@ -31,19 +35,6 @@ async function loadPokemonsSpieces(amountofnewloadedPokemons, start) {
         const pokemon = await getPokemonByUrl(element.url);
         pokemonSpeciesDict[pokemon['id']] = pokemon;
         console.log(pokemon['id']);
-    }
-}
-
-async function loadPokemons(amountofnewloadedPokemons, start) {
-    let pokemonapiurl = `https://pokeapi.co/api/v2/pokemon?limit=${amountofnewloadedPokemons}&offset=${start}`;
-    let response = await fetch(pokemonapiurl);
-    let responseasJson = await response.json();
-
-    for (let index = 0; index < responseasJson.results.length; index++) {
-        const element = responseasJson.results[index];
-        const pokemon = await getPokemonByUrl(element.url);
-        pokemonDict[pokemon['id']] = pokemon;
-        // console.log(pokemon['id']);
     }
 }
 
@@ -78,20 +69,4 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
     }
 
     renderPokemonGeneration(start, stop, generationNumber);
-}
-
-async function loadSpecies(pokemon) {
-    let url = pokemon['species']['url'];
-
-    // 1. Fall - Cached
-    // Returnen aus dem Cache
-    if (SPECIES_CACHE[url]) {
-        return SPECIES_CACHE[url];
-    }
-    // 2. Fall - Nicht im Cache - Laden von Server
-    let resp = await fetch(url);
-    let pespAsJson = await resp.json();
-    let pokemonSpecies = pespAsJson;
-    SPECIES_CACHE[url] = pokemonSpecies;
-    return pokemonSpecies;
 }

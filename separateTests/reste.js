@@ -40,3 +40,34 @@
 
 //     }
 // }
+
+// class="typ-${entrypokemon['types'][0]['type']['name']}"
+
+// function headerpokemon() {
+//     const headerpokemon = pokemonDict[25];
+//     if (headerpokemon) {
+//         imagepath = headerpokemon['sprites']['other']['dream_world']['front_default']
+//         document.getElementById('headerpokemon').src = imagepath;
+//         document.getElementById('headerpokemon').classList.remove('d-none');
+//     }
+// }
+
+// _______________________________________________________________________
+
+// let SPECIES_CACHE = {};
+
+// async function loadSpecies(pokemon) {
+//     let url = pokemon['species']['url'];
+
+//     // 1. Fall - Cached
+//     // Returnen aus dem Cache
+//     if (SPECIES_CACHE[url]) {
+//         return SPECIES_CACHE[url];
+//     }
+//     // 2. Fall - Nicht im Cache - Laden von Server
+//     let resp = await fetch(url);
+//     let pespAsJson = await resp.json();
+//     let pokemonSpecies = pespAsJson;
+//     SPECIES_CACHE[url] = pokemonSpecies;
+//     return pokemonSpecies;
+// }
