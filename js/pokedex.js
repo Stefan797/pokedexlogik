@@ -21,6 +21,8 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
     </div>`;
 }
 
+// this.id
+
 function opensingleEntry(pokemonID) {
     const entrypokemon = pokemonDict[pokemonID];
     const entrypokemonSpecies = pokemonSpeciesDict[pokemonID];
@@ -33,3 +35,4 @@ function opensingleEntry(pokemonID) {
     singleEntryContent.innerHTML = '';
     singleEntryContent.innerHTML += getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies);
 }
+

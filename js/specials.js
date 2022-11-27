@@ -1,5 +1,5 @@
-let InformationSentencesGerman = ['Klicken Sie auf das Glumanda, um jedes Mal zum Anfang der Seite zurückzukehren.', 'Informieren Sie sich über die spannenden Details in dem jeweiligen Eintrag.'];
-let InformationSentencesEnglish = ['Click on the glumanda to return to the top of the page each time.','Find out about the exciting details in the respective entry.'];
+let InformationSentencesGerman = ['Klicke auf das Pikachu, um immer wieder oben zur Seite zu gelangen.', 'Informieren Sie sich über die spannenden Details in dem jeweiligen Eintrag.'];
+let InformationSentencesEnglish = ['Click on the Pikachu to return to the top of the page each time.','Find out about the exciting details in the respective entry.'];
 let showHint = 0;
 let interval;
 

@@ -71,3 +71,28 @@
 //     SPECIES_CACHE[url] = pokemonSpecies;
 //     return pokemonSpecies;
 // }
+
+/* <div class="mb-8">
+            ${upperCaseFirstLetter(entrypokemon['stats'][0]['stat']['name'])}
+            ${entrypokemon['stats'][0]['base_stat']}
+        </div>
+        <div class="mb-8">
+            ${upperCaseFirstLetter(entrypokemon['stats'][1]['stat']['name'])}
+            ${entrypokemon['stats'][1]['base_stat']}
+        </div>
+        <div class="mb-8">
+            ${upperCaseFirstLetter(entrypokemon['stats'][2]['stat']['name'])}
+            ${entrypokemon['stats'][2]['base_stat']}
+        </div>
+        <div class="mb-8">
+            ${upperCaseFirstLetter(entrypokemon['stats'][3]['stat']['name'])}
+            ${entrypokemon['stats'][3]['base_stat']}
+        </div>
+        <div class="mb-8">
+            ${upperCaseFirstLetter(entrypokemon['stats'][4]['stat']['name'])}
+            ${entrypokemon['stats'][4]['base_stat']}
+        </div>
+        <div class="mb-8">
+            ${upperCaseFirstLetter(entrypokemon['stats'][5]['stat']['name'])}
+            ${entrypokemon['stats'][5]['base_stat']}
+        </div> */

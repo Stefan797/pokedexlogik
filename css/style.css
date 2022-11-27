@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .page_padding {
@@ -21,6 +22,29 @@ body {
     align-items: center;
 }
 
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-start-column {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.padding-five-percent {
+    padding: 5%;
+}
+
 .z-index-minus {
     z-index: -1;
+}
+
+.margin-left-right {
+    margin: 0 5% 0 5%;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
 }

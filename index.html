@@ -10,8 +10,10 @@
     <script src="js/scroll.js"></script>
     <script src="js/pokedex.js"></script>
     <script src="js/entry.js"></script>
+    <script src="js/htmlthemes.js"></script>
     <script src="js/specials.js"></script>
 
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/pokedex.css">
@@ -20,12 +22,12 @@
 <body onload="init()">
 
     <div onclick="closesingleEntry()" class="background-container center z-index-minus cursor-pointer" id="background_container">
-        <div class="singleEntry center d-none" id="singleEntry"></div>
+        <div onclick="event.stopPropagation()"  class="singleEntry center d-none" id="singleEntry"></div>
     </div>
     
     <div id="first_header" class="first_header">
         <div class="animation">
-            <span class="info-text" id="info-text">Click on the glumanda to return to the top of the page each time.</span>
+            <span class="info-text" id="info-text"></span>
         </div>
     </div>
 
