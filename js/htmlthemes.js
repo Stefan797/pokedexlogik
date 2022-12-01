@@ -39,19 +39,28 @@ function generateHtmlMoves(entrypokemon) {
         </div>
         </div>
     `;
-    for (let i = 0; i < 30; i++) {
-        if (entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
-            let levelup = document.getElementById('levels');
-            levelup.innerHTML += `
-            <div>${entrypokemon['moves'][i]['version_group_details'][0]['level_learned_at']}</div>
-            `;
-        }
-    }
+    getlearndlevelatHtml(entrypokemon);
+    
     for (let i = 0; i < 30; i++) {
         if (entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
             let movesbylevelup = document.getElementById('moves');
             movesbylevelup.innerHTML += `
             <div>${upperCaseFirstLetter(entrypokemon['moves'][i]['move']['name'])}</div>
+            `;
+        }
+    }
+}
+
+function getlearndlevelatHtml(entrypokemon) {
+    debugger;
+    let movesOrdered = entrypokemon['moves'].sort( function(m1, m2) {
+        return m1['version_group_details'][0]['level_learned_at'] - m2['version_group_details'][0]['level_learned_at'];
+    });
+    for (let i = 0; i < movesOrdered.length; i++) {
+        if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
+            let levelup = document.getElementById('levels');
+            levelup.innerHTML += `
+            <div>${movesOrdered[i]['version_group_details'][0]['level_learned_at']}</div>
             `;
         }
     }

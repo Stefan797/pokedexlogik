@@ -14,11 +14,12 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
 function getHtmlforPokedex(pokemon, pokemonSpecies) {
     return `
     <div id="${pokemon['id']}" onclick="opensingleEntry(this.id)" class="pokemon-box cursor-pointer distances">
-    <img src="${pokemon['sprites']['other']['dream_world']['front_default']}">
-    <div class="pokemon-name">
-    <span>${pokemonSpecies['names'][5]['name']}</span>
+        <img src="${pokemon['sprites']['other']['dream_world']['front_default']}">
+        <div class="pokemon-name">
+            <span>${pokemonSpecies['names'][5]['name']}</span>
+        </div>
     </div>
-    </div>`;
+    `;
 }
 
 // this.id

@@ -1,22 +1,24 @@
 function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
+    const id = entrypokemon['id'];
+    const typname = entrypokemon['types'][0]['type']['name'];
     return  `
     <div class="pokemon-container center"
-        style="background-image: url('../img/${entrypokemon['types'][0]['type']['name']}.jpg');">
+        style="background-image: url('../img/${typname}.jpg');">
         <span>${entrypokemonSpecies['names'][5]['name']}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
     </div>
     <div class="info_container">
         <div class="idAndTypCon">
             <p># ${entrypokemon['id']}</p>
-            <button>${entrypokemon['types'][0]['type']['name']}</button>
+            <button>${typname}</button>
         </div>
 
         <div class="subjects">
-            <div onclick="showTheme(${entrypokemon['id']}, 'About')">About</div>
-            <div onclick="showTheme(${entrypokemon['id']}, 'BaseStats')">Base Stats</div>
-            <div onclick="showTheme(${entrypokemon['id']}, 'Moves')">Moves</div>
-            <div onclick="showTheme(${entrypokemon['id']}, 'Food')">Food</div>
-            <div onclick="showTheme(${entrypokemon['id']}, 'Fun')">Fun</div>
+            <div onclick="showTheme(${id}, 'About')">About</div>
+            <div onclick="showTheme(${id}, 'BaseStats')">Base Stats</div>
+            <div onclick="showTheme(${id}, 'Moves')">Moves</div>
+            <div onclick="showTheme(${id}, 'Food')">Food</div>
+            <div onclick="showTheme(${id}}, 'Fun')">Fun</div>
         </div>
         <div id="theme" class="theme">
             <div id="aboutTheme" class="aboutTheme padding-five-percent">
