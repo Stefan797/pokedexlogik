@@ -52,7 +52,7 @@ function generateHtmlMoves(entrypokemon) {
 }
 
 function getlearndlevelatHtml(entrypokemon) {
-    debugger;
+    // debugger;
     let movesOrdered = entrypokemon['moves'].sort( function(m1, m2) {
         return m1['version_group_details'][0]['level_learned_at'] - m2['version_group_details'][0]['level_learned_at'];
     });

@@ -100,4 +100,37 @@ async function init() {
     //         }, 1000);
     //     }
     // }
+
+//     <div style="
+//     width: 151px;
+//     height: 151px;
+//     border-radius: 100%;
+//     border: 1px solid #466E9A;
+//     position: absolute;
+//     /* box-shadow: inset 0px 0px 10px 0px #0C1721; */
+//     box-shadow: inset 0px 0px 50px 24px #466E9A;
+//     z-index: 1;
+//     "></div>
+
+//     <div style="
+//     width: 70%;
+//     height: 60%;
+//     /* border-radius: 50%; */
+//     /* border: 2px solid white; */
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+// "><div style="
+//     width: 151px;
+//     height: 151px;
+//     border-radius: 100%;
+//     border: 1px solid #466E9A;
+//     position: absolute;
+//     /* box-shadow: inset 0px 0px 10px 0px #0C1721; */
+//     box-shadow: inset 0px 0px 50px 24px #466E9A;
+//     z-index: 1;
+// "></div>
+
+// <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg">
+//         </div>
 }

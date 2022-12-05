@@ -14,15 +14,67 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
 function getHtmlforPokedex(pokemon, pokemonSpecies) {
     return `
     <div id="${pokemon['id']}" onclick="opensingleEntry(this.id)" class="pokemon-box cursor-pointer distances">
-        <img src="${pokemon['sprites']['other']['dream_world']['front_default']}">
-        <div class="pokemon-name">
-            <span>${pokemonSpecies['names'][5]['name']}</span>
+        <div class="pokemon-box-img-wrapper">
+            <div class="pokemon-box-pokeball">
+                <div class="pokeball-line">
+                    <div class="pokeball-void-circle">
+                        <div class="pokeball-button"></div>
+                    </div>
+                </div>
+            </div>
+            <img class="pokemon-box-img" src="${pokemon['sprites']['other']['dream_world']['front_default']}">
+        </div>
+        <div class="bottom-box">
+        <div id="getID" class="pokemon-id"></div>
+            <div class="pokemon-name">
+                <span>${pokemonSpecies['names'][5]['name']}</span>
+                <div id="filltypes" class="typ-buttons-container">
+                    
+                </div>
+            </div>
         </div>
     </div>
     `;
+    generateHtmlPokemonID(pokemon);
+    generateHtmlPokemontyps(pokemon);
 }
 
-// this.id
+function generateHtmlPokemonID(pokemon) {
+    debugger;
+    if (pokemon['id'] < 100) {
+        document.getElementById('getID').innerHTML = `00${pokemon['id']}`;
+    } else (pokemon['id'] >= 100) 
+    {
+        document.getElementById('getID').innerHTML = `${pokemon['id']}`;
+    }
+}
+
+function generateHtmlPokemontyps(pokemon) {
+    if (pokemon['types'].length >= 1) {
+        console.log(pokemon['types'][1]);
+    }
+
+    // for (let typnumber = 0; typnumber < pokemon['types'].length; typnumber++) {
+
+    //     let typcontent = document.getElementById('filltypes');
+        
+    //     if (pokemon['types'].length == 1) {
+    //         typcontent.innerHTML = `
+    //         <div class="typ-btn typ-btn-${typname} typ-btn-border-${typname}">
+    //             <span>${typname}</span>
+    //         </div>
+    //         `; 
+    //     }
+    //     if (pokemon['types'][1]) {
+    //         return `
+    //         <div class="typ-btn typ-btn-${typname} typ-btn-border-${typname}">
+    //             <span>${typname}</span>
+    //         </div>
+    //         `;
+    //     }
+        
+    // }
+}
 
 function opensingleEntry(pokemonID) {
     const entrypokemon = pokemonDict[pokemonID];

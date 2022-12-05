@@ -96,3 +96,5 @@
             ${upperCaseFirstLetter(entrypokemon['stats'][5]['stat']['name'])}
             ${entrypokemon['stats'][5]['base_stat']}
         </div> */
+
+// this.id = nimmt den Wert aus der ID heraus

@@ -9,7 +9,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
     </div>
     <div class="info_container">
         <div class="idAndTypCon">
-            <p># ${entrypokemon['id']}</p>
+            <p># ${id}</p>
             <button>${typname}</button>
         </div>
 
