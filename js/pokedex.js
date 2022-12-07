@@ -54,11 +54,6 @@ function generateHtmlPokemonID(pokemon) {
     }
 }
 
-// for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
-    
-// }
-
 function generateHtmlPokemontyps(pokemon) {
     const typname = pokemon['types'][0]['type']['name'];
     if (pokemon['types'].length == 1) {
