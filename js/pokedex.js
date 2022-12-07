@@ -25,55 +25,55 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
             <img class="pokemon-box-img" src="${pokemon['sprites']['other']['dream_world']['front_default']}">
         </div>
         <div class="bottom-box">
-        <div id="getID" class="pokemon-id"></div>
+            <div class="pokemon-id">
+            ${generateHtmlPokemonID(pokemon)}
+            </div>
             <div class="pokemon-name">
                 <span>${pokemonSpecies['names'][5]['name']}</span>
-                <div id="filltypes" class="typ-buttons-container">
-                    
+                <div class="typ-buttons-container">
+                ${generateHtmlPokemontyps(pokemon)}
                 </div>
             </div>
         </div>
     </div>
     `;
-    generateHtmlPokemonID(pokemon);
-    generateHtmlPokemontyps(pokemon);
+    ;
 }
 
 function generateHtmlPokemonID(pokemon) {
-    debugger;
-    if (pokemon['id'] < 100) {
-        document.getElementById('getID').innerHTML = `00${pokemon['id']}`;
-    } else (pokemon['id'] >= 100) 
+    if (pokemon['id'] > 0 && pokemon['id'] < 10) {
+        return `00${pokemon['id']}`;
+    }
+    if (pokemon['id'] >= 10 && pokemon['id'] < 100) {
+        return `0${pokemon['id']}`;
+    }
+
+    if (pokemon['id'] >= 100) 
     {
-        document.getElementById('getID').innerHTML = `${pokemon['id']}`;
+        return `${pokemon['id']}`;
     }
 }
 
+// for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+    
+// }
+
 function generateHtmlPokemontyps(pokemon) {
-    if (pokemon['types'].length >= 1) {
-        console.log(pokemon['types'][1]);
+    const typname = pokemon['types'][0]['type']['name'];
+    if (pokemon['types'].length == 1) {
+        return `
+        <button class="typ-btn typ-btn-${typname} typ-btn-border-${typname} typ-btn-box-shadow-${typname}">
+        ${typname}</button>
+        `;
     }
 
-    // for (let typnumber = 0; typnumber < pokemon['types'].length; typnumber++) {
-
-    //     let typcontent = document.getElementById('filltypes');
-        
-    //     if (pokemon['types'].length == 1) {
-    //         typcontent.innerHTML = `
-    //         <div class="typ-btn typ-btn-${typname} typ-btn-border-${typname}">
-    //             <span>${typname}</span>
-    //         </div>
-    //         `; 
-    //     }
-    //     if (pokemon['types'][1]) {
-    //         return `
-    //         <div class="typ-btn typ-btn-${typname} typ-btn-border-${typname}">
-    //             <span>${typname}</span>
-    //         </div>
-    //         `;
-    //     }
-        
-    // }
+    if (pokemon['types'].length > 1) {
+        for (let i = 0; i < pokemon['types'].length; i++) {
+            const element = pokemon['types'][i]['type']['name'];
+            return `<button class="typ-btn typ-btn-${element} typ-btn-border-${element}">${element}</button>`;
+        }
+    }
 }
 
 function opensingleEntry(pokemonID) {
