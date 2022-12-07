@@ -51,7 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2197FF;
+    background-color: #0A141E;
 }
 
 .header img {
@@ -70,6 +70,7 @@
     border: 1px solid #57bcfa;
     border-radius: 8px;
     margin: 0 8px 0 8px;
+    cursor: pointer;
 }
 
 .button-box button:hover {

@@ -55,6 +55,7 @@ function generateHtmlPokemonID(pokemon) {
 }
 
 function generateHtmlPokemontyps(pokemon) {
+    let PokemonID = pokemon['id'];
     const typname = pokemon['types'][0]['type']['name'];
     if (pokemon['types'].length == 1) {
         return `
@@ -64,12 +65,18 @@ function generateHtmlPokemontyps(pokemon) {
     }
 
     if (pokemon['types'].length > 1) {
-        for (let i = 0; i < pokemon['types'].length; i++) {
-            const element = pokemon['types'][i]['type']['name'];
-            return `<button class="typ-btn typ-btn-${element} typ-btn-border-${element}">${element}</button>`;
-        }
+        generateSecondeTyps(PokemonID);
     }
 }
+
+function generateSecondeTyps(PokemonID) {
+    const pokemonTyp = pokemonDict[PokemonID];
+    let TypOne = pokemonTyp['types'][0]['type']['name'];
+    let TypTwo = pokemonTyp['types'][1]['type']['name'];
+    return `<button class="typ-btn typ-btn-${TypOne} typ-btn-border-${TypOne}">${TypOne}</button>
+    <button class="typ-btn typ-btn-${TypTwo} typ-btn-border-${TypTwo}">${TypTwo}</button>`;
+}
+
 
 function opensingleEntry(pokemonID) {
     const entrypokemon = pokemonDict[pokemonID];
