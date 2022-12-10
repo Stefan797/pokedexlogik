@@ -1,5 +1,6 @@
 let pokemonDict = {};
 let pokemonSpeciesDict = {};
+let pokemonTypsDict = {};
 let headerpokemonArray = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
@@ -7,6 +8,7 @@ let currentloading = false;
 async function init() {
     await loadPokemons(20, 0);
     await loadPokemonsSpieces(20, 0);
+    await loadPokemonsTyps(20, 0);
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();
     // debugger;
@@ -34,7 +36,21 @@ async function loadPokemonsSpieces(amountofnewloadedPokemons, start) {
         const element = responseasJson.results[index];
         const pokemon = await getPokemonByUrl(element.url);
         pokemonSpeciesDict[pokemon['id']] = pokemon;
-        console.log(pokemon['id']);
+        // console.log(pokemon['id']); Nicht löschen Anzahl der PKM
+    }
+}
+
+async function loadPokemonsTyps(amountofnewloadedPokemons, start) {
+    let pokemonapiurl = `https://pokeapi.co/api/v2/type?limit=${amountofnewloadedPokemons}&offset=${start}`;
+    let response = await fetch(pokemonapiurl);
+    let responseasJson = await response.json();
+
+    for (let index = 0; index < responseasJson.results.length; index++) {
+        const element = responseasJson.results[index];
+        const pokemon = await getPokemonByUrl(element.url);
+        pokemonTypsDict[pokemon['id']] = pokemon;
+        console.log(pokemonTypsDict[pokemon['id']]);
+        // console.log(pokemonTypsDict['names'][4]['name']);
     }
 }
 

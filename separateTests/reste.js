@@ -98,3 +98,53 @@
         </div> */
 
 // this.id = nimmt den Wert aus der ID heraus
+
+
+// <div class="designbox">
+//             <div class="designbox-dupplikat">
+//             <div class="border-left-box"></div>
+//             <div class="border-right-box"></div>
+//             <div class="border-bottom-box"></div>
+//             </div>
+
+/* 
+.designbox:before {
+    content: "";
+    position: absolute;
+    left    : 10%;
+    bottom  : 0;
+    height  : 1px;
+    width   : 80%;  /* or 100px */
+    /* border-bottom: 1px solid white; */
+
+/* .kreis {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+} */ 
+
+/* .designbox-dupplikat {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.border-bottom-box {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    border-bottom: 1px solid white;
+}
+
+.border-left-box {
+    transform: rotate(-12deg);
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 10%;
+    height: 10%;
+    border-left: 1px solid white;
+} */

@@ -29,7 +29,12 @@ async function init() {
     // console.log(responseasJson.results[0]['name']);
     // console.log(responseasJson.results[0]['url']);
 
-    let firstpokemon = 'https://pokeapi.co/api/v2/pokemon/25/';
+    // let firstpokemon = 'https://pokeapi.co/api/v2/pokemon/25/';
+    // let responseFirstPokemon = await fetch(firstpokemon);
+    // let responseasJsonFirstPokemon = await responseFirstPokemon.json();
+    // console.log(responseasJsonFirstPokemon);
+
+    let firstpokemon = 'https://pokeapi.co/api/v2/type?limit=20&offset=1';
     let responseFirstPokemon = await fetch(firstpokemon);
     let responseasJsonFirstPokemon = await responseFirstPokemon.json();
     console.log(responseasJsonFirstPokemon);

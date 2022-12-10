@@ -56,3 +56,5 @@ function designEntryheader(pokemonID) {
 function upperCaseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+// utility.js für Funktionen die man öffters in Projekten brauchen kann.

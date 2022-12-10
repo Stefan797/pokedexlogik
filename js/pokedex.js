@@ -25,14 +25,20 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
             <img class="pokemon-box-img" src="${pokemon['sprites']['other']['dream_world']['front_default']}">
         </div>
         <div class="bottom-box">
-            <div class="pokemon-id">
-            ${generateHtmlPokemonID(pokemon)}
+            
+            <div class="designbox">
+            <div class="kreis"></div>
             </div>
-            <div class="pokemon-name">
-                <span>${pokemonSpecies['names'][5]['name']}</span>
-                <div class="typ-buttons-container">
-                ${generateHtmlPokemontyps(pokemon)}
+            <div>
+                <div class="pokemon-id">
+                    ${generateHtmlPokemonID(pokemon)}
                 </div>
+                <div class="pokemon-name">
+                    <span>${pokemonSpecies['names'][5]['name']}</span>
+                </div>
+            </div>
+            <div class="typ-buttons-container">
+                ${generateHtmlPokemontyps(pokemon)}
             </div>
         </div>
     </div>
@@ -56,25 +62,15 @@ function generateHtmlPokemonID(pokemon) {
 
 function generateHtmlPokemontyps(pokemon) {
     let PokemonID = pokemon['id'];
-    const typname = pokemon['types'][0]['type']['name'];
-    if (pokemon['types'].length == 1) {
-        return `
-        <button class="typ-btn typ-btn-${typname} typ-btn-border-${typname} typ-btn-box-shadow-${typname}">
-        ${typname}</button>
-        `;
+    let typesHTML = "";
+    for (let index = 0; index < pokemon['types'].length; index++) {
+        const typeName = pokemon['types'][index]['type']['name'];
+        typesHTML += `
+        <button class="typ-btn typ-btn-${typeName} typ-btn-border-${typeName} typ-btn-box-shadow-${typeName}">
+            ${typeName}
+        </button>`;
     }
-
-    if (pokemon['types'].length > 1) {
-        generateSecondeTyps(PokemonID);
-    }
-}
-
-function generateSecondeTyps(PokemonID) {
-    const pokemonTyp = pokemonDict[PokemonID];
-    let TypOne = pokemonTyp['types'][0]['type']['name'];
-    let TypTwo = pokemonTyp['types'][1]['type']['name'];
-    return `<button class="typ-btn typ-btn-${TypOne} typ-btn-border-${TypOne}">${TypOne}</button>
-    <button class="typ-btn typ-btn-${TypTwo} typ-btn-border-${TypTwo}">${TypTwo}</button>`;
+    return typesHTML;
 }
 
 
