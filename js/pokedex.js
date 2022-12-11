@@ -5,13 +5,14 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
         const pokemonSpecies = pokemonSpeciesDict[i];
+        const pokemonTyps = pokemonTypsDict[i];
         if (pokemon && pokemonSpecies) {
-            container.innerHTML += getHtmlforPokedex(pokemon, pokemonSpecies);
+            container.innerHTML += getHtmlforPokedex(pokemon, pokemonSpecies, pokemonTyps);
         }
     }
 }
 
-function getHtmlforPokedex(pokemon, pokemonSpecies) {
+function getHtmlforPokedex(pokemon, pokemonSpecies, pokemonTyps) {
     return `
     <div id="${pokemon['id']}" onclick="opensingleEntry(this.id)" class="pokemon-box cursor-pointer distances">
         <div class="pokemon-box-img-wrapper">
@@ -38,12 +39,47 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
                 </div>
             </div>
             <div class="typ-buttons-container">
-                ${generateHtmlPokemontyps(pokemon)}
+                ${generateHtmlPokemontyps(pokemon, pokemonTyps)}
             </div>
         </div>
     </div>
     `;
     ;
+}
+
+// function generateHtmlPokemontyps(pokemon, pokemonTyps) {
+//     console.log(pokemonTyps['names'][4]['name']);
+//     let typesHTML = "";
+//     if (currentLanguage == 'German') {
+//         for (let index = 0; index < pokemon['types'].length; index++) {
+//             const typeName = pokemon['types'][index]['type']['name'];
+//             const typeNameGerman = pokemonTyps['names'][4]['name'];
+            
+//             if (typeName == ) {
+                
+//             }
+//             typesHTML += `
+//             <button class="typ-btn typ-btn-${typeName} typ-btn-border-${typeName} typ-btn-box-shadow-${typeName}">
+//                 ${typeNameGerman}
+//             </button>`;
+//         }  
+//     }
+//     return typesHTML;
+// }
+
+function generateHtmlPokemontyps(pokemon, pokemonTyps) {
+    
+    let typesHTML = "";
+    
+    for (let index = 0; index < pokemon['types'].length; index++) {
+        const typeName = pokemon['types'][index]['type']['name'];
+        typesHTML += `
+        <button class="typ-btn typ-btn-${typeName} typ-btn-border-${typeName} typ-btn-box-shadow-${typeName}">
+        ${typeName}
+        </button>`;
+     }  
+    
+    return typesHTML;
 }
 
 function generateHtmlPokemonID(pokemon) {
@@ -58,19 +94,6 @@ function generateHtmlPokemonID(pokemon) {
     {
         return `${pokemon['id']}`;
     }
-}
-
-function generateHtmlPokemontyps(pokemon) {
-    let PokemonID = pokemon['id'];
-    let typesHTML = "";
-    for (let index = 0; index < pokemon['types'].length; index++) {
-        const typeName = pokemon['types'][index]['type']['name'];
-        typesHTML += `
-        <button class="typ-btn typ-btn-${typeName} typ-btn-border-${typeName} typ-btn-box-shadow-${typeName}">
-            ${typeName}
-        </button>`;
-    }
-    return typesHTML;
 }
 
 

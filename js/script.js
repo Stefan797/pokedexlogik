@@ -4,6 +4,7 @@ let pokemonTypsDict = {};
 let headerpokemonArray = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
+let currentLanguage = 'German';
 
 async function init() {
     await loadPokemons(20, 0);
