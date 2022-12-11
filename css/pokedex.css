@@ -1,19 +1,16 @@
 .pokemons-background-container {
     margin-top: 10vh;
     background-color: #0A141E;
-    /* background-image: url('../img2/test.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; */
+    z-index: 1;
 }
 
 .pokemons {
     background-image: url('../img2/test.jpg');
-    /* background-repeat: no-repeat;
-    background-size: cover; */
     padding-top: 50px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    z-index: 2;
 }
 
 .pokemon-box {
@@ -26,7 +23,7 @@
     background-color: #0A141E;
     border: 2px solid #466E9A;
     border-radius: 12px;
-
+    z-index: 3;
     /* min-width: 300px; Testen wegen responsiv */
 }
 
@@ -44,7 +41,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    
+    z-index: 4;
 }
 
 .pokemon-box-img {

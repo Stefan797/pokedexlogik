@@ -1,5 +1,5 @@
-let InformationSentencesGerman = ['Klicke auf das Pikachu, um immer wieder oben zur Seite zu gelangen.', 'Informieren Sie sich über die spannenden Details in dem jeweiligen Eintrag.'];
-let InformationSentencesEnglish = ['Click on the Pikachu to return to the top of the page each time.','Find out about the exciting details in the respective entry.'];
+let InformationSentencesGerman = ['Klicke auf das Pikachu, um oben zur Seite zu gelangen.', 'Informieren Sie sich über die spannenden Details im jeweiligen Eintrag.', 'Drücke die Tasten L + E um die Pokedex Sprache auf Englisch zu ändern !'];
+let InformationSentencesEnglish = ['Click on the Pikachu to return to the top of the page each time.','Find out about the exciting details in the respective entry.', 'Press the L + G keys to change the Pokedex language to German !'];
 let showHint = 0;
 let interval;
 
@@ -22,27 +22,17 @@ function comeUpToSide() {
 function showdifferentUserInformations() {
     interval = setInterval(() => {
         changeInformationSentence();
-    }, 30000);
+    }, 10000);
 }
 
 function changeInformationSentence() {
-    // debugger;
     let info = document.getElementById('info-text');
     const Sentence = InformationSentencesGerman[showHint];
     info.innerHTML = Sentence;    
     showHint++;
-    if(showHint == 10) {
+    if(showHint == 3) {
         clearInterval(interval);
     }
-}
-
-function designEntryheader(pokemonID) {
-    // debugger;
-    const entryheader = pokemonDict[pokemonID];
-    let typename = entryheader['types'][0]['type']['name'];
-    let entryheadercontent = document.getElementById('entryheader');
-    entryheadercontent.classList.remove('d-none');
-    entryheadercontent.style.backgroundImage = "url('../img/" + typename + ".jpg')";
 }
 
 // _______________________________________________________________________

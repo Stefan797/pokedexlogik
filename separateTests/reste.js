@@ -148,3 +148,17 @@
     height: 10%;
     border-left: 1px solid white;
 } */
+
+// document.getElementById('background_container').classList.remove('z-index-minus');
+// document.getElementById('header').classList.add('d-none');
+// designEntryheader(pokemonID);
+
+
+// function designEntryheader(pokemonID) {
+//     // debugger;
+//     const entryheader = pokemonDict[pokemonID];
+//     let typename = entryheader['types'][0]['type']['name'];
+//     let entryheadercontent = document.getElementById('entryheader');
+//     entryheadercontent.classList.remove('d-none');
+//     entryheadercontent.style.backgroundImage = "url('../img/" + typename + ".jpg')";
+// }

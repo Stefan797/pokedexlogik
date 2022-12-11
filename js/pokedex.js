@@ -100,12 +100,10 @@ function generateHtmlPokemonID(pokemon) {
 function opensingleEntry(pokemonID) {
     const entrypokemon = pokemonDict[pokemonID];
     const entrypokemonSpecies = pokemonSpeciesDict[pokemonID];
-    document.getElementById('background_container').classList.remove('z-index-minus');
-    document.getElementById('first_header').classList.add('d-none');
-    document.getElementById('header').classList.add('d-none');
-    designEntryheader(pokemonID);
-    let singleEntryContent = document.getElementById('singleEntry');
-    singleEntryContent.classList.remove('d-none');
+
+    document.getElementById('entry-background-container').classList.remove('d-none');
+    document.getElementById('singleEntry').classList.remove('d-none');
+    let singleEntryContent =  document.getElementById('singleEntry');
     singleEntryContent.innerHTML = '';
     singleEntryContent.innerHTML += getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies);
 }

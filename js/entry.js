@@ -72,11 +72,7 @@ function clearAll() {
 }
 
 function closesingleEntry() {
-    document.getElementById('background_container').classList.add('z-index-minus');
-    document.getElementById('first_header').classList.remove('d-none');
-    document.getElementById('header').classList.remove('d-none');
-    document.getElementById('entryheader').classList.add('d-none');
-    let singleEntryContent = document.getElementById('singleEntry');
-    singleEntryContent.classList.add('d-none');
+    document.getElementById('entry-background-container').classList.add('d-none');
+    document.getElementById('singleEntry').classList.add('d-none');
 }
 

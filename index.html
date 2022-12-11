@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,44 +20,40 @@
     <link rel="stylesheet" href="css/pokedex.css">
     <link rel="stylesheet" href="css/entry.css">
     <link rel="stylesheet" href="css/colors.css">
-    </head>
+</head>
+
 <body onload="init()">
 
-    <div onclick="closesingleEntry()" class="background-container center z-index-minus cursor-pointer" id="background_container">
-        <div onclick="event.stopPropagation()"  class="singleEntry center d-none" id="singleEntry"></div>
+    <div id="entry-background-container" onclick="closesingleEntry()" class="background-container center cursor-pointer d-none">
+        <div onclick="event.stopPropagation()" class="singleEntry center d-none" id="singleEntry"></div>
     </div>
     
-    <div id="first_header" class="first_header">
-        <div class="animation">
-            <span class="info-text" id="info-text"></span>
-        </div>
-    </div>
-
-    <div id="entryheader" class="entryheader d-none"></div>
-
     <div id="header" class="header page_padding">
-        
-        <div>
-  
-            <img onclick="comeUpToSide()" id="headerpokemon" class="d-none cursor-pointer" src="">
-            
-            <!-- <div class="mainheadercontent">Kanto Johto Hoenn</div>  -->
+        <div class="test">
+            <div class="headerpokemon-box">
+                <img onclick="comeUpToSide()" id="headerpokemon" class="headerpokemon d-none cursor-pointer" src="">
+            </div>
+
+            <div class="information-box">
+                <div class="animation">
+                    <span id="info-text"></span> <!--Kanto Johto Hoenn-->
+                </div>
+            </div>
         </div>
-        
-        
         <div class="button-box">
             <button onclick="loadPokemonGeneration(1, 151, 1)">Gen 1</button>
             <button onclick="loadPokemonGeneration(152, 251, 2)">Gen 2</button>
             <button onclick="loadPokemonGeneration(252, 387, 3)">Gen 3</button>
         </div>
     </div>
-  
-    <div class="pokemons-background-container page_padding" >
+
+    <div class="pokemons-background-container page_padding">
         <div id="container" class="pokemons">
 
         </div>
     </div>
-    
-    
+
+
 </body>
+
 </html>
