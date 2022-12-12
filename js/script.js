@@ -1,6 +1,6 @@
 let pokemonDict = {};
 let pokemonSpeciesDict = {};
-let pokemonTypsDict = {};
+let pokemonTypesDict = {};
 let headerpokemonArray = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
@@ -9,7 +9,7 @@ let currentLanguage = 'German';
 async function init() {
     await loadPokemons(20, 0);
     await loadPokemonsSpieces(20, 0);
-    await loadPokemonsTyps(20, 0);
+    await loadPokemonsTypes(17, 0);
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();
     // debugger;
@@ -41,7 +41,7 @@ async function loadPokemonsSpieces(amountofnewloadedPokemons, start) {
     }
 }
 
-async function loadPokemonsTyps(amountofnewloadedPokemons, start) {
+async function loadPokemonsTypes(amountofnewloadedPokemons, start) {
     let pokemonapiurl = `https://pokeapi.co/api/v2/type?limit=${amountofnewloadedPokemons}&offset=${start}`;
     let response = await fetch(pokemonapiurl);
     let responseasJson = await response.json();
@@ -49,9 +49,8 @@ async function loadPokemonsTyps(amountofnewloadedPokemons, start) {
     for (let index = 0; index < responseasJson.results.length; index++) {
         const element = responseasJson.results[index];
         const pokemon = await getPokemonByUrl(element.url);
-        pokemonTypsDict[pokemon['id']] = pokemon;
-        console.log(pokemonTypsDict[pokemon['id']]);
-        // console.log(pokemonTypsDict['names'][4]['name']);
+        pokemonTypesDict[pokemon['id']] = pokemon;
+        console.log(pokemonTypesDict[pokemon['id']]);
     }
 }
 

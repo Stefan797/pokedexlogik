@@ -5,14 +5,13 @@ async function renderPokemonGeneration(start, stop, pokemonGenerationNumber) {
     for (let i = start; i < stop; i++) {
         const pokemon = pokemonDict[i];
         const pokemonSpecies = pokemonSpeciesDict[i];
-        const pokemonTyps = pokemonTypsDict[i];
         if (pokemon && pokemonSpecies) {
-            container.innerHTML += getHtmlforPokedex(pokemon, pokemonSpecies, pokemonTyps);
+            container.innerHTML += getHtmlforPokedex(pokemon, pokemonSpecies);
         }
     }
 }
 
-function getHtmlforPokedex(pokemon, pokemonSpecies, pokemonTyps) {
+function getHtmlforPokedex(pokemon, pokemonSpecies) {
     return `
     <div id="${pokemon['id']}" onclick="opensingleEntry(this.id)" class="pokemon-box cursor-pointer distances">
         <div class="pokemon-box-img-wrapper">
@@ -38,8 +37,8 @@ function getHtmlforPokedex(pokemon, pokemonSpecies, pokemonTyps) {
                     <span>${pokemonSpecies['names'][5]['name']}</span>
                 </div>
             </div>
-            <div class="typ-buttons-container">
-                ${generateHtmlPokemontyps(pokemon, pokemonTyps)}
+            <div class="type-buttons-container">
+                ${generateHtmlPokemontypes(pokemon)}
             </div>
         </div>
     </div>
@@ -47,38 +46,21 @@ function getHtmlforPokedex(pokemon, pokemonSpecies, pokemonTyps) {
     ;
 }
 
-// function generateHtmlPokemontyps(pokemon, pokemonTyps) {
-//     console.log(pokemonTyps['names'][4]['name']);
-//     let typesHTML = "";
-//     if (currentLanguage == 'German') {
-//         for (let index = 0; index < pokemon['types'].length; index++) {
-//             const typeName = pokemon['types'][index]['type']['name'];
-//             const typeNameGerman = pokemonTyps['names'][4]['name'];
-            
-//             if (typeName == ) {
-                
-//             }
-//             typesHTML += `
-//             <button class="typ-btn typ-btn-${typeName} typ-btn-border-${typeName} typ-btn-box-shadow-${typeName}">
-//                 ${typeNameGerman}
-//             </button>`;
-//         }  
-//     }
-//     return typesHTML;
-// }
-
-function generateHtmlPokemontyps(pokemon, pokemonTyps) {
-    
+function generateHtmlPokemontypes(pokemon) {
     let typesHTML = "";
-    
-    for (let index = 0; index < pokemon['types'].length; index++) {
-        const typeName = pokemon['types'][index]['type']['name'];
-        typesHTML += `
-        <button class="typ-btn typ-btn-${typeName} typ-btn-border-${typeName} typ-btn-box-shadow-${typeName}">
-        ${typeName}
-        </button>`;
-     }  
-    
+    if (currentLanguage == 'German') {
+        for (let index = 0; index < pokemon['types'].length; index++) {
+            const typeName = pokemon['types'][index]['type']['name'];
+            for (let x = 1; x < 18; x++) {
+                if (typeName == pokemonTypesDict[x]['name']) {
+                    typesHTML += `
+                    <button class="type-btn type-btn-${typeName} type-btn-border-${typeName} type-btn-box-shadow-${typeName}">
+                        ${pokemonTypesDict[x]['names'][4]['name']}
+                    </button>`;
+                }
+            }
+        }  
+    }
     return typesHTML;
 }
 

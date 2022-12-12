@@ -5,7 +5,7 @@
 }
 
 .pokemons {
-    background-image: url('../img2/test.jpg');
+    background-image: url('../img/pokedex-background.jpg');
     padding-top: 50px;
     display: flex;
     justify-content: center;
@@ -24,11 +24,8 @@
     border: 2px solid #466E9A;
     border-radius: 12px;
     z-index: 3;
+    min-width: 300px;
     /* min-width: 300px; Testen wegen responsiv */
-}
-
-.pokemon-box:hover {
-    cursor: pointer;
 }
 
 .distances {
@@ -156,7 +153,7 @@
     text-shadow: 0 0 5px rgb(0 0 0 / 75%);
 }
 
-.typ-buttons-container {
+.type-buttons-container {
     min-width: 100%;
     display: flex;
     justify-content: space-between;
@@ -164,7 +161,7 @@
     gap: 20px;
 }
 
-.typ-btn {
+.type-btn {
     height: fit-content;
     width: 47%;
     color: white;
