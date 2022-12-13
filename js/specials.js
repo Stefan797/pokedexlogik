@@ -35,6 +35,10 @@ function changeInformationSentence() {
     }
 }
 
+function changePokedexLanguage() {
+    generateHtmlPokemontypes();
+}
+
 // _______________________________________________________________________
 
 /**

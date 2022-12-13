@@ -2,8 +2,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
     const id = entrypokemon['id'];
     const typname = entrypokemon['types'][0]['type']['name'];
     return  `
-    <div class="pokemon-container center"
-        style="background-image: url('../img/${typname}.jpg');">
+    <div class="pokemon-container center entry-background-${typname}">
         <span>${entrypokemonSpecies['names'][5]['name']}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
     </div>

@@ -162,3 +162,9 @@
 //     entryheadercontent.classList.remove('d-none');
 //     entryheadercontent.style.backgroundImage = "url('../img/" + typename + ".jpg')";
 // }
+
+/* <div class="pokemon-container center"
+        style="background-image: url('../img/${typname}.jpg');">
+        <span>${entrypokemonSpecies['names'][5]['name']}</span>
+        <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
+    </div> */
