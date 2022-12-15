@@ -1,8 +1,8 @@
 // RIGHT = false;
 // LEFT = false;
 
-window.addEventListener("keydown", e => {
-    
+window.addEventListener("keydown", (e) => {
+    console.log(e);
     const k = e.key;
 
     if (e.keyCode == 68) {

@@ -36,7 +36,7 @@ function changeInformationSentence() {
 }
 
 function changePokedexLanguage() {
-    generateHtmlPokemontypes();
+    renderPokemonGeneration(1, 151, 1);
 }
 
 // _______________________________________________________________________

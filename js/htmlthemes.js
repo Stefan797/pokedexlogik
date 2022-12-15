@@ -21,8 +21,14 @@ function generateHtmlBaseStats(entrypokemon) {
             ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
             ${entrypokemon['stats'][i]['base_stat']}
         </div>
+        <div>${getstatsbars()}
+        </div>
         `;
     }
+}
+
+function getstatsbars(entrypokemon) {
+    console.log(entrypokemon);
 }
 
 function generateHtmlMoves(entrypokemon) {

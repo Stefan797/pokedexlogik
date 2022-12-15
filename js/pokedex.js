@@ -48,21 +48,32 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
 
 function generateHtmlPokemontypes(pokemon) {
     let typesHTML = "";
-    if (currentLanguage == 'German') {
-        for (let index = 0; index < pokemon['types'].length; index++) {
-            const typeName = pokemon['types'][index]['type']['name'];
-            for (let x = 1; x < 18; x++) {
-                if (typeName == pokemonTypesDict[x]['name']) {
-                    typesHTML += `
-                    <button class="type-btn type-btn-${typeName} type-btn-border-${typeName} type-btn-box-shadow-${typeName}">
-                        ${pokemonTypesDict[x]['names'][4]['name']}
-                    </button>`;
-                }
+    for (let index = 0; index < pokemon['types'].length; index++) {
+        const typeName = pokemon['types'][index]['type']['name'];
+        for (let x = 1; x < 18; x++) {
+            if (typeName == pokemonTypesDict[x]['name']) {
+                typesHTML += `
+                <button class="type-btn type-btn-${typeName} type-btn-border-${typeName} type-btn-box-shadow-${typeName}">
+                    ${selecttypelanguage(index, x)}
+                </button>`;
             }
-        }  
+        }
     }
+
     return typesHTML;
 }
+
+function selecttypelanguage(index, x) {
+
+    if (currentLanguage == 'German') {
+        return `${pokemonTypesDict[x]['names'][4]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${pokemonDict['types'][index]['type']['name']}`;
+    }
+}
+
+
 
 function generateHtmlPokemonID(pokemon) {
     if (pokemon['id'] > 0 && pokemon['id'] < 10) {
@@ -72,8 +83,7 @@ function generateHtmlPokemonID(pokemon) {
         return `0${pokemon['id']}`;
     }
 
-    if (pokemon['id'] >= 100) 
-    {
+    if (pokemon['id'] >= 100) {
         return `${pokemon['id']}`;
     }
 }
@@ -85,7 +95,7 @@ function opensingleEntry(pokemonID) {
 
     document.getElementById('entry-background-container').classList.remove('d-none');
     document.getElementById('singleEntry').classList.remove('d-none');
-    let singleEntryContent =  document.getElementById('singleEntry');
+    let singleEntryContent = document.getElementById('singleEntry');
     singleEntryContent.innerHTML = '';
     singleEntryContent.innerHTML += getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies);
 }
