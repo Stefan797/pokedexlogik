@@ -54,7 +54,7 @@ function generateHtmlPokemontypes(pokemon) {
             if (typeName == pokemonTypesDict[x]['name']) {
                 typesHTML += `
                 <button class="type-btn type-btn-${typeName} type-btn-border-${typeName} type-btn-box-shadow-${typeName}">
-                    ${selecttypelanguage(index, x)}
+                    ${selecttypelanguage(pokemon['id'], index, x)}
                 </button>`;
             }
         }
@@ -63,13 +63,13 @@ function generateHtmlPokemontypes(pokemon) {
     return typesHTML;
 }
 
-function selecttypelanguage(index, x) {
+function selecttypelanguage(pokemonId, index, x) {
 
     if (currentLanguage == 'German') {
         return `${pokemonTypesDict[x]['names'][4]['name']}`;
     }
     if (currentLanguage == 'English') {
-        return `${pokemonDict['types'][index]['type']['name']}`;
+        return `${pokemonDict[pokemonId]['types'][index]['type']['name']}`;
     }
 }
 

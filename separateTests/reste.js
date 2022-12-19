@@ -168,3 +168,22 @@
         <span>${entrypokemonSpecies['names'][5]['name']}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
     </div> */
+
+/* <div id="foodTheme" class="foodTheme padding-five-percent d-none"></div>
+<div id="funTheme" class="funTheme padding-five-percent d-none"></div> */
+
+// if (selectedtopic == 'Food') {
+//     clearAll();
+//     generateHtmlFood(entrypokemon);
+// }
+// if (selectedtopic == 'Fun') {
+//     clearAll();
+//     generateHtmlFun(entrypokemon);
+    
+// }
+
+// document.getElementById('foodTheme').classList.add('d-none');
+// document.getElementById('funTheme').classList.add('d-none');
+
+/* <div onclick="showTheme(${id}, 'Food')">Food</div>
+<div onclick="showTheme(${id}}, 'Fun')">Fun</div> */

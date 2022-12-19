@@ -21,14 +21,18 @@ function generateHtmlBaseStats(entrypokemon) {
             ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
             ${entrypokemon['stats'][i]['base_stat']}
         </div>
-        <div>${getstatsbars()}
+        <div>${getstatsbars(entrypokemon['stats'][i]['base_stat'])}
         </div>
         `;
     }
 }
 
-function getstatsbars(entrypokemon) {
-    console.log(entrypokemon);
+function getstatsbars(baseStatValue) {
+    let baseStatBar = "";
+
+    baseStatBar = `<progress max="100" value="${baseStatValue}"> ${baseStatValue}% </progress>`;
+    return baseStatBar;
+   
 }
 
 function generateHtmlMoves(entrypokemon) {
@@ -37,6 +41,7 @@ function generateHtmlMoves(entrypokemon) {
     themeMoves.innerHTML = '';
     themeMoves.innerHTML += `
         <div class="flex-start">
+
         <div style="margin-right: 10%;" id="levels">
             <span style="margin-bottom: 10px;">Level</span>
         </div>
@@ -48,7 +53,8 @@ function generateHtmlMoves(entrypokemon) {
     getlearndlevelatHtml(entrypokemon);
     
     for (let i = 0; i < 30; i++) {
-        if (entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
+
+        if ( true || entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
             let movesbylevelup = document.getElementById('moves');
             movesbylevelup.innerHTML += `
             <div>${upperCaseFirstLetter(entrypokemon['moves'][i]['move']['name'])}</div>

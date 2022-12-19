@@ -16,8 +16,6 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
             <div onclick="showTheme(${id}, 'About')">About</div>
             <div onclick="showTheme(${id}, 'BaseStats')">Base Stats</div>
             <div onclick="showTheme(${id}, 'Moves')">Moves</div>
-            <div onclick="showTheme(${id}, 'Food')">Food</div>
-            <div onclick="showTheme(${id}}, 'Fun')">Fun</div>
         </div>
         <div id="theme" class="theme">
             <div id="aboutTheme" class="aboutTheme padding-five-percent">
@@ -29,8 +27,6 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
             </div>
             <div id="basestatsTheme" class="basestatsTheme padding-five-percent d-none"></div>
             <div id="movesTheme" class="movesTheme padding-five-percent d-none"></div>
-            <div id="foodTheme" class="foodTheme padding-five-percent d-none"></div>
-            <div id="funTheme" class="funTheme padding-five-percent d-none"></div>
         </div>
     </div>
     `;
@@ -51,23 +47,12 @@ function showTheme(pokemonID, selectedtopic) {
         clearAll();
         generateHtmlMoves(entrypokemon);
     }
-    if (selectedtopic == 'Food') {
-        clearAll();
-        generateHtmlFood(entrypokemon);
-    }
-    if (selectedtopic == 'Fun') {
-        clearAll();
-        generateHtmlFun(entrypokemon);
-        
-    }
 }
 
 function clearAll() {
     document.getElementById('aboutTheme').classList.add('d-none');
     document.getElementById('basestatsTheme').classList.add('d-none');
     document.getElementById('movesTheme').classList.add('d-none');
-    document.getElementById('foodTheme').classList.add('d-none');
-    document.getElementById('funTheme').classList.add('d-none');
 }
 
 function closesingleEntry() {
