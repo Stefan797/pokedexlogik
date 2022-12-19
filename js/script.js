@@ -8,8 +8,8 @@ let currentLanguage = 'German';
 let currentlyOpenpokemon = 1;
 
 async function init() {
-    await loadPokemons(20, 0);
-    await loadPokemonsSpieces(20, 0);
+    await loadPokemons(10, 0);
+    await loadPokemonsSpieces(10, 0);
     await loadPokemonsTypes(17, 0);
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();

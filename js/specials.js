@@ -36,6 +36,7 @@ function changeInformationSentence() {
 }
 
 function changePokedexLanguage() {
+    console.log('1');
     renderPokemonGeneration(1, 151, 1);
 }
 

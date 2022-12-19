@@ -1,5 +1,6 @@
 .pokemons-background-container {
     margin-top: 10vh;
+    min-height: 100vh;
     background-color: #0A141E;
     z-index: 1;
 }
@@ -11,6 +12,7 @@
     justify-content: center;
     flex-wrap: wrap;
     z-index: 2;
+    min-height: 100vh;
 }
 
 .pokemon-box {

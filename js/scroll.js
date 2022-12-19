@@ -72,8 +72,8 @@ async function findNextMissingPokemon(start) {
 async function initializeFoundPokemon(nextPokemonId) {
     // debugger;
     let newStartValue = nextPokemonId - 1;
-    await loadPokemons(20, newStartValue);
-    await loadPokemonsSpieces(20, newStartValue);
+    await loadPokemons(10, newStartValue);
+    await loadPokemonsSpieces(10, newStartValue);
     renderCurrentGeneration(nextPokemonId);
 }
 

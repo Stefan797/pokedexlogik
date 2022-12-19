@@ -34,7 +34,7 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
                     ${generateHtmlPokemonID(pokemon)}
                 </div>
                 <div class="pokemon-name">
-                    <span>${pokemonSpecies['names'][5]['name']}</span>
+                    <span>${selectPokemonName(pokemon['id'], pokemonSpecies)}</span>
                 </div>
             </div>
             <div class="type-buttons-container">
@@ -44,6 +44,15 @@ function getHtmlforPokedex(pokemon, pokemonSpecies) {
     </div>
     `;
     ;
+}
+
+function selectPokemonName(pokemonId, pokemonSpecies) {
+    if (currentLanguage == 'German') {
+        return `${pokemonSpecies['names'][5]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${pokemonDict[pokemonId]['name']}`;
+    }
 }
 
 function generateHtmlPokemontypes(pokemon) {

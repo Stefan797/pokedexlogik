@@ -1,23 +1,11 @@
 // RIGHT = false;
 // LEFT = false;
 
-let test = {
- 68 : false, // d
- 76 : false // l
-};
+let keyRegister = {};
 
-window.addEventListener("keydown", (e) => {
-    console.log(e);
-    const k = e.key;
-    test[e.keyCode] = true;
+window.addEventListener("keydown", (keyboard) => {
 
-    if (test[68] && test[76]) {
-       
-        currentLanguage = 'English';
-        changePokedexLanguage();
-    }
-
-    console.log(currentLanguage);
+    keyRegister[keyboard.key] = true;
 
     // if (entryOpened) {
     //     if (e.keyCode == 39) {
@@ -28,34 +16,39 @@ window.addEventListener("keydown", (e) => {
     //     }
     // }
 
-    // if (e.keyCode == 13) {
-    //     keyboard.ENTER = true;
-
-    //     if (world.youwin) {
-    //         location.reload();
-    //     }
-
-    //     if (world.gameover) {
-    //         location.reload();
-    //     }
-    // }
 });
 
 
 /**
  * The window.addEventlistener(with "keyup")  is used to register which keys are pressed.
  */
-window.addEventListener("keyup", e => {
-    test[e.keyCode] = false;
-    const k = e.key;
-    console.log(k);
-
-    if (entryOpened) {
-        if (e.keyCode == 39) {
-            shownextpokemonup(currentOpenedPokemonId);
-        }
-        if (e.keyCode == 37) {
-            shownextpokemondown(currentOpenedPokemonId);
+window.addEventListener("keyup", (keyboard) => {
+    // debugger;
+    if (currentLanguage == 'German') {
+        if (keyRegister['e'] && keyRegister['l']) {
+            currentLanguage = 'English';
+            changePokedexLanguage();
         }
     }
+
+    if (currentLanguage == 'English') {
+        if (keyRegister['d'] && keyRegister['l']) {
+            currentLanguage = 'German';
+            changePokedexLanguage();
+        }
+    }
+
+    keyRegister[keyboard.key] = false;
+   
+    // const k = e.key;
+    // console.log(k);
+
+    // if (entryOpened) {
+    //     if (e.keyCode == 39) {
+    //         shownextpokemonup(currentOpenedPokemonId);
+    //     }
+    //     if (e.keyCode == 37) {
+    //         shownextpokemondown(currentOpenedPokemonId);
+    //     }
+    // }
 });

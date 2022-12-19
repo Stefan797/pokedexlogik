@@ -77,21 +77,3 @@ function getlearndlevelatHtml(entrypokemon) {
         }
     }
 }
-
-function generateHtmlFood(entrypokemon) {
-    let themeFood = document.getElementById('foodTheme');
-    themeFood.classList.remove('d-none');
-    themeFood.innerHTML = '';
-    themeFood.innerHTML += `
-    ${entrypokemon['moves'][1]['move']['name']}
-    `;
-}
-
-function generateHtmlFun(entrypokemon) {
-    let themeFun = document.getElementById('funTheme');
-    themeFun.classList.remove('d-none');
-    themeFun.innerHTML = '';
-    themeFun.innerHTML += `
-    ${entrypokemon['moves'][2]['move']['name']}
-    `;
-}
