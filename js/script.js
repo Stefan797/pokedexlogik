@@ -66,20 +66,32 @@ async function loadPokemonGeneration(start, stop, generationNumber) {
     switch (generationNumber) {
         case 1:
             if (!pokemonDict[152]) {
+                currentloading = true;
+                checkDataLoadingAnimation();
                 await loadPokemons(20, 1);
-                await loadPokemonsSpieces(20, 1)
+                await loadPokemonsSpieces(20, 1);
+                currentloading = false;
+                checkDataLoadingAnimation();
             }
             break;
         case 2:
             if (!pokemonDict[152]) {
+                currentloading = true;
+                checkDataLoadingAnimation();
                 await loadPokemons(20, 151);
                 await loadPokemonsSpieces(20, 151);
+                currentloading = false;
+                checkDataLoadingAnimation();
             }
             break;
         case 3:
             if (!pokemonDict[252]) {
+                currentloading = true;
+                checkDataLoadingAnimation();
                 await loadPokemons(20, 251);
                 await loadPokemonsSpieces(20, 251);
+                currentloading = false;
+                checkDataLoadingAnimation();
             }
 
             break;

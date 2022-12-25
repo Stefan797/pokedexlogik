@@ -67,10 +67,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 5;
 }
 
 .loader {
-    font-size: 10px;
+    font-size: 17px;
     width: 1em;
     height: 1em;
     border-radius: 50%;
