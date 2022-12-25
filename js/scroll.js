@@ -2,8 +2,10 @@ window.onscroll = async function (ev) {
     // debugger;
     if (hasReachedPageBottom() && !currentloading && checkGenerationLoadingEndpoint()) {
         currentloading = true;
+        checkDataLoadingAnimation();
         await nextsteps();
         currentloading = false;
+        checkDataLoadingAnimation();
     }
 };
 

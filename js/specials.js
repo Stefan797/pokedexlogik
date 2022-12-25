@@ -40,6 +40,15 @@ function changePokedexLanguage() {
     renderPokemonGeneration(1, 151, 1);
 }
 
+function checkDataLoadingAnimation() {
+    if (currentloading) {
+        document.getElementById('loader').classList.remove('d-none');
+    }
+    if (!currentloading) {
+        document.getElementById('loader').classList.add('d-none');
+    }
+}
+
 // _______________________________________________________________________
 
 /**
