@@ -51,7 +51,7 @@ async function loadPokemonsTypes(amountofnewloadedPokemons, start) {
         const element = responseasJson.results[index];
         const pokemon = await getPokemonByUrl(element.url);
         pokemonTypesDict[pokemon['id']] = pokemon;
-        console.log(pokemonTypesDict[pokemon['id']]);
+        // console.log(pokemonTypesDict[pokemon['id']]);
     }
 }
 

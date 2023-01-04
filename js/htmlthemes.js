@@ -17,44 +17,52 @@ function generateHtmlBaseStats(entrypokemon) {
     themeBaseStats.innerHTML += `<div class="flex-start-column"></div>`;
     for (let i = 0; i < 6; i++) {
         themeBaseStats.innerHTML += `
-        <div class="mb-8">
+        <div class="basestatsbox mb-8">
+            <div class="section1">
+
             ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
-            ${entrypokemon['stats'][i]['base_stat']}
+           
+            </div>
+            <div class="section2">
+            ${getstatsbars(entrypokemon['stats'][i]['base_stat'], entrypokemon['id'])}
+            </div>
         </div>
-        <div>${getstatsbars(entrypokemon['stats'][i]['base_stat'])}
-        </div>
+        
         `;
     }
 }
 
-function getstatsbars(baseStatValue) {
-    let baseStatBar = "";
+// ${entrypokemon['stats'][i]['base_stat']}
 
-    baseStatBar = `<progress max="100" value="${baseStatValue}"> ${baseStatValue}% </progress>`;
+function getstatsbars(baseStatValue, pokemonID) {
+    let pokemon = pokemonDict[pokemonID];
+    let pokemonType = pokemon['types'][0]['type']['name'];
+    let baseStatBar = "";
+    baseStatBar = `<div id="progress"><div style="width: ${baseStatValue}%;" class="bar bar-color-${pokemonType}"></div></div>`;
     return baseStatBar;
-   
 }
 
 function generateHtmlMoves(entrypokemon) {
     let themeMoves = document.getElementById('movesTheme');
     themeMoves.classList.remove('d-none');
     themeMoves.innerHTML = '';
-    themeMoves.innerHTML += `
-        <div class="flex-start">
-
-        <div style="margin-right: 10%;" id="levels">
-            <span style="margin-bottom: 10px;">Level</span>
-        </div>
-        <div id="moves">
-            <span>Move</span>
-        </div>
+    themeMoves.innerHTML += /*html*/ `
+        <div class="maincontainer">
+            <div class="headlines">
+                <div style="width: 30%;">Level</div>
+                <div style="width: 70%;">Moves</div>
+            </div>
+            <div class="headlinecontent">
+                <div style="width: 30%; max-height: 100%;" id="levels"></div>
+                <div style="width: 70%; max-height: 100%;" id="moves"></div>
+            </div>
         </div>
     `;
     getlearndlevelatHtml(entrypokemon);
-    
+
     for (let i = 0; i < 30; i++) {
 
-        if ( true || entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
+        if (true || entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
             let movesbylevelup = document.getElementById('moves');
             movesbylevelup.innerHTML += `
             <div>${upperCaseFirstLetter(entrypokemon['moves'][i]['move']['name'])}</div>
@@ -65,7 +73,7 @@ function generateHtmlMoves(entrypokemon) {
 
 function getlearndlevelatHtml(entrypokemon) {
     // debugger;
-    let movesOrdered = entrypokemon['moves'].sort( function(m1, m2) {
+    let movesOrdered = entrypokemon['moves'].sort(function (m1, m2) {
         return m1['version_group_details'][0]['level_learned_at'] - m2['version_group_details'][0]['level_learned_at'];
     });
     for (let i = 0; i < movesOrdered.length; i++) {
@@ -77,3 +85,17 @@ function getlearndlevelatHtml(entrypokemon) {
         }
     }
 }
+
+/* <div class="flex-start">
+
+<div class="Movessection1" style="margin-right: 10%;">
+    <div id="levels">
+        <span style="margin-bottom: 10px;">Level</span>
+    </div>
+</div>
+<div class="Movessection2">
+    <div id="moves">
+        <span>Move</span>
+    </div>
+</div>
+</div> */
