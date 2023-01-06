@@ -60,7 +60,7 @@ function generateHtmlPokemontypes(pokemon) {
     let typesHTML = "";
     for (let index = 0; index < pokemon['types'].length; index++) {
         const typeName = pokemon['types'][index]['type']['name'];
-        for (let x = 1; x < 18; x++) {
+        for (let x = 1; x <= 18; x++) {
             if (typeName == pokemonTypesDict[x]['name']) {
                 typesHTML += `
                 <button class="type-btn type-btn-${typeName} type-btn-border-${typeName} type-btn-box-shadow-${typeName}">

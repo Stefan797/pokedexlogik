@@ -10,10 +10,13 @@ let currentLanguage = 'German';
 let OpenEntry = false;
 let currentOpenEntryNumber = 1;
 
+// loadPokemonsSpieces  bei load Function Zwei falsch
+
 async function init() {
     await loadPokemons(10, 0);
     await loadPokemonsSpieces(10, 0);
-    await loadPokemonsTypes(17, 0);
+    // debugger;
+    await loadPokemonsTypes(18, 0);
     renderPokemonGeneration(1, 151, 1);
     headerpokemon();
     // debugger;

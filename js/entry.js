@@ -37,7 +37,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
 
 function findPokemonType(entrypokemon) {
     let test = pokemonTypesDict;
-    for (let x = 1; x < 18; x++) {
+    for (let x = 1; x <= 18; x++) {
         if (test[x]['name'] == entrypokemon['types'][0]['type']['name']) {
             return pokemonTypesDict[x];
         }
