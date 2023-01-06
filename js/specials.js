@@ -36,7 +36,7 @@ function changeInformationSentence() {
 }
 
 function changePokedexLanguage() {
-    debugger;
+    // debugger;
     if (OpenEntry) {
         opensingleEntry(currentOpenEntryNumber);
     }

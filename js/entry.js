@@ -5,7 +5,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
     let currentPokemonTypeJson = findPokemonType(entrypokemon);
     return  `
     <div class="pokemon-container center entry-background-${typename}">
-        <span>${entrypokemonSpecies['names'][5]['name']}</span>
+        <span>${selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies)}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
     </div>
     <div class="info_container">
@@ -50,7 +50,18 @@ function selectEntryTypeLanguage(entrypokemon, currentPokemonTypeJson) {
         return `${currentPokemonTypeJson['names'][4]['name']}`;
     }
     if (currentLanguage == 'English') {
-        return `${pokemonDict[pokemonId]['types'][0]['type']['name']}`;
+        return `${upperCaseFirstLetter(pokemonDict[pokemonId]['types'][0]['type']['name'])}`;
+    }
+}
+
+function selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies) {
+    // debugger;
+    let pokemonId = entrypokemon['id'];
+    if (currentLanguage == 'German') {
+        return `${entrypokemonSpecies['names'][5]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${upperCaseFirstLetter(pokemonDict[pokemonId]['name'])}`;
     }
 }
 
