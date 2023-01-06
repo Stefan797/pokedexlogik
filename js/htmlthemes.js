@@ -68,7 +68,7 @@ function getLearndLevelAtNumbersHtml(entrypokemon) {
         if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
             let levelup = document.getElementById('levels');
             levelup.innerHTML += `
-            <div>${movesOrdered[i]['version_group_details'][0]['level_learned_at']}</div>
+            <div class="mb_2px">${movesOrdered[i]['version_group_details'][0]['level_learned_at']}</div>
             `;
         }
     }
@@ -82,7 +82,7 @@ async function getLearndLevelAtMovesHtml(entrypokemon) {
             await loadAttackJSON(entrypokemon, i);
             let movesbylevelup = document.getElementById('moves');
             movesbylevelup.innerHTML += `
-            <div>${selectAttackLanguage(entrypokemon, i)}</div>
+            <div class="mb_2px">${selectAttackLanguage(entrypokemon, i)}</div>
             `;
         }
     }

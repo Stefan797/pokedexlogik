@@ -46,10 +46,6 @@ body {
     margin: 0 5% 0 5%;
 }
 
-.mb-8 {
-    margin-bottom: 8px;
-}
-
 .bgtest {
     background-color: rgba(77, 76, 76, 0.125);
 }
@@ -115,4 +111,14 @@ body {
     87.5% {
         box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
     }
+}
+
+/* Abstände */
+
+.mb_2px {
+    margin-bottom: 2px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
 }
