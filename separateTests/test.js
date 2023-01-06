@@ -34,7 +34,7 @@ async function init() {
     // let responseasJsonFirstPokemon = await responseFirstPokemon.json();
     // console.log(responseasJsonFirstPokemon);
 
-    let firstpokemon = 'https://pokeapi.co/api/v2/type?limit=20&offset=1';
+    let firstpokemon = 'https://pokeapi.co/api/v2/move/77/';
     let responseFirstPokemon = await fetch(firstpokemon);
     let responseasJsonFirstPokemon = await responseFirstPokemon.json();
     console.log(responseasJsonFirstPokemon);

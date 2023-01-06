@@ -74,15 +74,26 @@ function getLearndLevelAtNumbersHtml(entrypokemon) {
     }
 }
 
-function getLearndLevelAtMovesHtml(entrypokemon) {
+async function getLearndLevelAtMovesHtml(entrypokemon) {
     let movesOrdered = ascendingNumbers(entrypokemon);
+    // debugger;
     for (let i = 0; i < movesOrdered.length; i++) {
-        if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
+        if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') { // machine level-up
+            await loadAttackJSON(entrypokemon, i);
             let movesbylevelup = document.getElementById('moves');
             movesbylevelup.innerHTML += `
-            <div>${upperCaseFirstLetter(entrypokemon['moves'][i]['move']['name'])}</div>
+            <div>${selectAttackLanguage(entrypokemon, i)}</div>
             `;
         }
+    }
+}
+
+function selectAttackLanguage(entrypokemon, i) {
+    if (currentLanguage == 'German') {
+        return `${ATTACK_CACHE['names'][4]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${entrypokemon['moves'][i]['move']['name']}`;
     }
 }
 
