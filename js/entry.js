@@ -21,10 +21,11 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
         </div>
         <div id="theme" class="theme">
             <div id="aboutTheme" class="aboutTheme padding-five-percent">
-                <div class="flex-start-column">
-                    <span class="mb-8">Weight : ${entrypokemon['weight']}</span>
-                    <span class="mb-8">Height : ${entrypokemon['height']}</span>
-                    <span>Ability : ${entrypokemon['abilities'][0]['ability']['name']}</span>
+                <div>
+                    <p id="weight">Gewicht :</p><span> ${entrypokemon['weight']}</span>
+                    <p id="height">Größe :</p><span>${entrypokemon['height']}</span>
+                    <p id="ability">Fähigkeit :</p>
+                    <span id="ability-name">${generateAbilitiesHTML(entrypokemon)}</span>
                 </div>
             </div>
             <div id="basestatsTheme" class="basestatsTheme padding-five-percent d-none"></div>
@@ -64,6 +65,28 @@ function selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies) {
         return `${upperCaseFirstLetter(pokemonDict[pokemonId]['name'])}`;
     }
 }
+
+async function generateAbilitiesHTML(entrypokemon) {
+    // debugger;
+    for (let i = 0; i < entrypokemon['abilities'].length; i++) {
+        await loadAbilityJSON(entrypokemon, i);
+        let abilitycontent = document.getElementById('ability-name');
+        abilitycontent.innerHTML += `
+        ${selectAbilityLanguage(entrypokemon, i)}
+        `;
+    }
+}
+
+function selectAbilityLanguage(entrypokemon, i) {
+    if (currentLanguage == 'German') {
+        return `${ABILITIES_CACHE['names'][4]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${entrypokemon['abilities'][i]['ability']['name']}`;
+    }
+}
+
+
 
 function showTheme(pokemonID, selectedtopic) {
     const entrypokemon = pokemonDict[pokemonID];

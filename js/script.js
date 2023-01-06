@@ -2,6 +2,7 @@ let pokemonDict = {};
 let pokemonSpeciesDict = {};
 let pokemonTypesDict = {};
 let ATTACK_CACHE = {}; // CACHE for Entry Moves
+let ABILITIES_CACHE = {}; // CACHE for Entry Abilities
 let headerpokemonArray = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
@@ -70,6 +71,20 @@ async function loadAttackJSON(entrypokemon, i) {
     let pespAsJson = await resp.json();
     ATTACK_CACHE = pespAsJson;
     return ATTACK_CACHE;
+}
+
+async function loadAbilityJSON(entrypokemon, i) {
+    let url = entrypokemon['abilities'][i]['ability']['url'];
+    // 1. Fall - Cached
+    // Returnen aus dem Cache
+    if (ABILITIES_CACHE[url]) {
+        return ABILITIES_CACHE[url];
+    }
+    // 2. Fall - Nicht im Cache - Laden von Server
+    let resp = await fetch(url);
+    let pespAsJson = await resp.json();
+    ABILITIES_CACHE = pespAsJson;
+    return ABILITIES_CACHE;
 }
 
 async function getPokemonByUrl(onlypokemonurl) {

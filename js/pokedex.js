@@ -56,6 +56,7 @@ function selectPokemonName(pokemonId, pokemonSpecies) {
 }
 
 function generateHtmlPokemontypes(pokemon) {
+    // debugger;
     let typesHTML = "";
     for (let index = 0; index < pokemon['types'].length; index++) {
         const typeName = pokemon['types'][index]['type']['name'];

@@ -39,9 +39,24 @@ function changePokedexLanguage() {
     // debugger;
     if (OpenEntry) {
         opensingleEntry(currentOpenEntryNumber);
+        changeEntryMenuLanguage();
+        changeEntryThemeLanguageAbout();
     }
     renderPokemonGeneration(1, 151, 1);
-    changeEntryMenuLanguage();
+    
+}
+
+function changeEntryThemeLanguageAbout() {
+    if (currentLanguage == 'English') {
+        document.getElementById('weight').innerHTML = 'Weight :';
+        document.getElementById('height').innerHTML = 'Height :';
+        document.getElementById('ability').innerHTML = 'Ability';
+    }
+    if (currentLanguage == 'German') {
+        document.getElementById('weight').innerHTML = 'Gewicht';
+        document.getElementById('height').innerHTML = 'Größe';
+        document.getElementById('ability').innerHTML = 'Fähigkeit';
+    }
 }
 
 function changeEntryMenuLanguage() {
