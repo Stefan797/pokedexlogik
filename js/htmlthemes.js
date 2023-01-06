@@ -58,24 +58,12 @@ function generateHtmlMoves(entrypokemon) {
             </div>
         </div>
     `;
-    getlearndlevelatHtml(entrypokemon);
-
-    for (let i = 0; i < 30; i++) {
-
-        if (true || entrypokemon['moves'][i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
-            let movesbylevelup = document.getElementById('moves');
-            movesbylevelup.innerHTML += `
-            <div>${upperCaseFirstLetter(entrypokemon['moves'][i]['move']['name'])}</div>
-            `;
-        }
-    }
+    getLearndLevelAtNumbersHtml(entrypokemon);
+    getLearndLevelAtMovesHtml(entrypokemon);
 }
 
-function getlearndlevelatHtml(entrypokemon) {
-    // debugger;
-    let movesOrdered = entrypokemon['moves'].sort(function (m1, m2) {
-        return m1['version_group_details'][0]['level_learned_at'] - m2['version_group_details'][0]['level_learned_at'];
-    });
+function getLearndLevelAtNumbersHtml(entrypokemon) {
+    let movesOrdered = ascendingNumbers(entrypokemon);
     for (let i = 0; i < movesOrdered.length; i++) {
         if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
             let levelup = document.getElementById('levels');
@@ -86,16 +74,22 @@ function getlearndlevelatHtml(entrypokemon) {
     }
 }
 
-/* <div class="flex-start">
+function getLearndLevelAtMovesHtml(entrypokemon) {
+    let movesOrdered = ascendingNumbers(entrypokemon);
+    for (let i = 0; i < movesOrdered.length; i++) {
+        if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') {
+            let movesbylevelup = document.getElementById('moves');
+            movesbylevelup.innerHTML += `
+            <div>${upperCaseFirstLetter(entrypokemon['moves'][i]['move']['name'])}</div>
+            `;
+        }
+    }
+}
 
-<div class="Movessection1" style="margin-right: 10%;">
-    <div id="levels">
-        <span style="margin-bottom: 10px;">Level</span>
-    </div>
-</div>
-<div class="Movessection2">
-    <div id="moves">
-        <span>Move</span>
-    </div>
-</div>
-</div> */
+// sortiert die stellen vom Feld ['moves'] von klein nach Groß
+function ascendingNumbers(entrypokemon) {
+    let movesOrdered = entrypokemon['moves'].sort(function (m1, m2) {
+        return m1['version_group_details'][0]['level_learned_at'] - m2['version_group_details'][0]['level_learned_at'];
+    });
+    return movesOrdered;
+}
