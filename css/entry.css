@@ -52,7 +52,7 @@
    flex-direction: column;
 }
 
-.idAndTypCon {
+.idAndTypeCon {
    margin-top: 10%;
    width: 80%;
    /* background-color: rgba(0, 0, 0, 0.5); */
@@ -70,12 +70,12 @@
    border-bottom: 1px solid #bab6b6;
 }
 
-.idAndTypCon p {
+.idAndTypeCon p {
    font-weight: bold;
    font-size: 24px;
 }
 
-.idAndTypCon button {
+.idAndTypeCon button {
    height: 70%;
    /* background-color: #363535; */
    background-color: rgba(35, 35, 35, 0.45);

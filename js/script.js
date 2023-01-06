@@ -6,7 +6,8 @@ let headerpokemonArray = [];
 let currentShowedPokedex = 1;
 let currentloading = false;
 let currentLanguage = 'German';
-let currentlyOpenpokemon = 1;
+let OpenEntry = false;
+let currentOpenEntryNumber = 1;
 
 async function init() {
     await loadPokemons(10, 0);

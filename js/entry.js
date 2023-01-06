@@ -1,21 +1,23 @@
 function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
     const id = entrypokemon['id'];
-    const typname = entrypokemon['types'][0]['type']['name'];
+    const typename = entrypokemon['types'][0]['type']['name'];
+    // debugger;
+    let currentPokemonTypeJson = findPokemonType(entrypokemon);
     return  `
-    <div class="pokemon-container center entry-background-${typname}">
+    <div class="pokemon-container center entry-background-${typename}">
         <span>${entrypokemonSpecies['names'][5]['name']}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
     </div>
     <div class="info_container">
-        <div class="idAndTypCon">
+        <div class="idAndTypeCon">
             <p># ${id}</p>
-            <button>${typname}</button>
+            <button>${selectEntryTypeLanguage(entrypokemon, currentPokemonTypeJson)}</button>
         </div>
 
         <div class="subjects">
-            <div onclick="showTheme(${id}, 'About')">About</div>
-            <div onclick="showTheme(${id}, 'BaseStats')">Base Stats</div>
-            <div onclick="showTheme(${id}, 'Moves')">Moves</div>
+            <div id="entry-about-menu" onclick="showTheme(${id}, 'About')">Über</div>
+            <div id="entry-base-stats-menu" onclick="showTheme(${id}, 'BaseStats')">Basis Werte</div>
+            <div id="entry-moves-menu" onclick="showTheme(${id}, 'Moves')">Attacken</div>
         </div>
         <div id="theme" class="theme">
             <div id="aboutTheme" class="aboutTheme padding-five-percent">
@@ -30,6 +32,26 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
         </div>
     </div>
     `;
+}
+
+function findPokemonType(entrypokemon) {
+    let test = pokemonTypesDict;
+    for (let x = 1; x < 18; x++) {
+        if (test[x]['name'] == entrypokemon['types'][0]['type']['name']) {
+            return pokemonTypesDict[x];
+        }
+    }
+}
+
+function selectEntryTypeLanguage(entrypokemon, currentPokemonTypeJson) {
+    let pokemonId = entrypokemon['id'];
+    // debugger;
+    if (currentLanguage == 'German') {
+        return `${currentPokemonTypeJson['names'][4]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${pokemonDict[pokemonId]['types'][0]['type']['name']}`;
+    }
 }
 
 function showTheme(pokemonID, selectedtopic) {
@@ -58,5 +80,6 @@ function clearAll() {
 function closesingleEntry() {
     document.getElementById('entry-background-container').classList.add('d-none');
     document.getElementById('singleEntry').classList.add('d-none');
+    OpenEntry = false;
 }
 

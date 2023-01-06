@@ -36,8 +36,25 @@ function changeInformationSentence() {
 }
 
 function changePokedexLanguage() {
-    console.log('1');
+    debugger;
+    if (OpenEntry) {
+        opensingleEntry(currentOpenEntryNumber);
+    }
     renderPokemonGeneration(1, 151, 1);
+    changeEntryMenuLanguage();
+}
+
+function changeEntryMenuLanguage() {
+    if (currentLanguage == 'English') {
+        document.getElementById('entry-about-menu').innerHTML = 'About';
+        document.getElementById('entry-base-stats-menu').innerHTML = 'Base Stats';
+        document.getElementById('entry-moves-menu').innerHTML = 'Moves';
+    }
+    if (currentLanguage == 'German') {
+        document.getElementById('entry-about-menu').innerHTML = 'Über';
+        document.getElementById('entry-base-stats-menu').innerHTML = 'Basis Werte';
+        document.getElementById('entry-moves-menu').innerHTML = 'Attacken';
+    }
 }
 
 function checkDataLoadingAnimation() {

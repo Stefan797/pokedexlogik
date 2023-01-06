@@ -73,7 +73,6 @@ function generateHtmlPokemontypes(pokemon) {
 }
 
 function selecttypelanguage(pokemonId, index, x) {
-
     if (currentLanguage == 'German') {
         return `${pokemonTypesDict[x]['names'][4]['name']}`;
     }
@@ -101,7 +100,8 @@ function generateHtmlPokemonID(pokemon) {
 function opensingleEntry(pokemonID) {
     const entrypokemon = pokemonDict[pokemonID];
     const entrypokemonSpecies = pokemonSpeciesDict[pokemonID];
-
+    OpenEntry = true;
+    currentOpenEntryNumber = entrypokemon['id'];
     document.getElementById('entry-background-container').classList.remove('d-none');
     document.getElementById('singleEntry').classList.remove('d-none');
     let singleEntryContent = document.getElementById('singleEntry');
