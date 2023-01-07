@@ -3,11 +3,21 @@
 .weight-container {
     display: flex;
     align-items: center;
+    margin-bottom: 8px;
+}
+
+.weight-container div {
+    width: 50%;
 }
 
 .height-container {
     display: flex;
     align-items: center;
+    margin-bottom: 8px;
+}
+
+.height-container div {
+    width: 50%;
 }
 
 /* Base stats Theme */

@@ -138,20 +138,6 @@
     box-shadow: 0 0 0.25em 0.03em #dc78c8;
 }
 
-/* Typ bug */
-
-.type-btn-bug {
-    background-color: #32b432;
-}
-
-.type-btn-border-bug {
-    border-color: #46c846;
-}
-
-.type-btn-box-shadow-bug {
-    box-shadow: 0 0 0.25em 0.03em #32b432;
-}
-
 /* Typ ground */
 
 .type-btn-ground {
@@ -263,46 +249,4 @@
 
 .type-btn-box-shadow-ghost {
     box-shadow: 0 0 0.25em 0.03em #8c78f0;
-}
-
-/* Background Pokedex Entry */
-
-.entry-background-electric {
-    background-color: #FFBF16;
-}
-
-.entry-background-grass {
-    background-color: #63CF9B;
-}
-
-.entry-background-fairy {
-    background-color: #E49390;
-}
-
-.entry-background-fire {
-    background-color: #F19B62;
-}
-
-.entry-background-water {
-    background-color: #648EA6;
-}
-
-.entry-background-water {
-    background-color: #648EA6;
-}
-
-.entry-background-psychic {
-    background-color: #7C456D;
-}
-
-.entry-background-flying {
-    background-color: #9BA6F5;
-}
-
-.enton {
-    background-color: #FFC93A;
-}
-
-.turtok {
-    background-color: #60C6D2;
 }

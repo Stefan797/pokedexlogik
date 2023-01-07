@@ -4,7 +4,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
     // debugger;
     let currentPokemonTypeJson = findPokemonType(entrypokemon);
     return  /*html*/ `
-    <div class="pokemon-container center entry-background-${typename}">
+    <div class="pokemon-container center entry-color-${typename}">
         <span>${selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies)}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
     </div>
@@ -23,14 +23,14 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
             <div id="aboutTheme" class="aboutTheme padding-five-percent">
                 <div>
                     <div class="weight-container">
-                        <p id="weight">Gewicht : </p><span>${entrypokemon['weight']} kg</span>
+                        <div id="weight">Gewicht : </div><div>${entrypokemon['weight']} kg</div>
                     </div>
                     <div class="height-container">
-                    <p id="height">Größe : </p><span>${entrypokemon['height']}0 cm</span>
+                    <div id="height">Größe : </div><div>${entrypokemon['height']}0 cm</div>
                     </div>
                     <div class="ability-container">
-                    <p id="ability">Fähigkeit : </p>
-                    <span id="ability-name">${generateAbilitiesHTML(entrypokemon)}</span>
+                    <div id="ability">Fähigkeit : </div>
+                    <div id="ability-name">${generateAbilitiesHTML(entrypokemon)}</div>
                     </div>
                 </div>
             </div>
@@ -85,10 +85,18 @@ async function generateAbilitiesHTML(entrypokemon) {
 
 function selectAbilityLanguage(entrypokemon, i, currentAbility) {
     if (currentLanguage == 'German') {
-        return `${ABILITIES_CACHE[currentAbility['id']]['names'][4]['name']}`;
+        return `
+        <div class="mb-8">
+            ${ABILITIES_CACHE[currentAbility['id']]['names'][4]['name']}
+            <div class="mt-8">${ABILITIES_CACHE[currentAbility['id']]['flavor_text_entries'][12]['flavor_text']}</div>
+        </div>`;
     }
     if (currentLanguage == 'English') {
-        return `${entrypokemon['abilities'][i]['ability']['name']}`;
+        return `
+        <div class="mb-8">
+            ${entrypokemon['abilities'][i]['ability']['name']}
+            <div class="mt-8">${ABILITIES_CACHE[currentAbility['id']]['flavor_text_entries'][0]['flavor_text']}</div>
+        </div>`;
     }
 }
 

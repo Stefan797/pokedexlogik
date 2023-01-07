@@ -3,10 +3,17 @@ function generateHtmlAbout(entrypokemon) {
     themeAbout.classList.remove('d-none');
     themeAbout.innerHTML = '';
     themeAbout.innerHTML += `
-    <div class="flex-start-column">
-    <span class="mb-8">Weight : ${entrypokemon['weight']}</span>
-    <span class="mb-8">Height : ${entrypokemon['height']}</span>
-    <span>Ability : ${entrypokemon['abilities'][0]['ability']['name']}</span>
+    <div>
+        <div class="weight-container">
+            <div id="weight">Gewicht : </div><div>${entrypokemon['weight']} kg</div>
+        </div>
+        <div class="height-container">
+            <div id="height">Größe : </div><div>${entrypokemon['height']}0 cm</div>
+        </div>
+        <div class="ability-container">
+            <div id="ability">Fähigkeit : </div>
+            <div id="ability-name">${generateAbilitiesHTML(entrypokemon)}</div>
+        </div>
     </div>`;
 }
 
@@ -19,9 +26,7 @@ function generateHtmlBaseStats(entrypokemon) {
         themeBaseStats.innerHTML += `
         <div class="basestatsbox mb-8">
             <div class="section1">
-
             ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
-           
             </div>
             <div class="section2">
             ${getstatsbars(entrypokemon['stats'][i]['base_stat'], entrypokemon['id'])}
@@ -38,7 +43,7 @@ function getstatsbars(baseStatValue, pokemonID) {
     let pokemon = pokemonDict[pokemonID];
     let pokemonType = pokemon['types'][0]['type']['name'];
     let baseStatBar = "";
-    baseStatBar = `<div id="progress"><div style="width: ${baseStatValue}%;" class="bar bar-color-${pokemonType}"></div></div>`;
+    baseStatBar = `<div id="progress"><div style="width: ${baseStatValue}%;" class="bar entry-color-${pokemonType}"></div></div>`;
     return baseStatBar;
 }
 
@@ -50,7 +55,7 @@ function generateHtmlMoves(entrypokemon) {
         <div class="maincontainer">
             <div class="headlines">
                 <div style="width: 30%;">Level</div>
-                <div style="width: 70%;">Moves</div>
+                <div style="width: 70%;">Attacken</div>
             </div>
             <div class="headlinecontent">
                 <div style="width: 30%; max-height: 100%;" id="levels"></div>
