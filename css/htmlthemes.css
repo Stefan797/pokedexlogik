@@ -1,3 +1,15 @@
+/* About Theme */
+
+.weight-container {
+    display: flex;
+    align-items: center;
+}
+
+.height-container {
+    display: flex;
+    align-items: center;
+}
+
 /* Base stats Theme */
 
 .basestatsbox {

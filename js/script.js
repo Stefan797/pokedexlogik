@@ -63,31 +63,41 @@ async function loadPokemonsTypes(amountofnewloadedPokemons, start) {
 
 
 async function loadAttackJSON(entrypokemon, i) {
+    // debugger;
     let url = entrypokemon['moves'][i]['move']['url'];
+    // Z 1 entfernt den letzten backslash, Z 2 gibt die letzen zwei Stellen nach dem letzen Backslash an.
+    let rest = url.substring(0, url.lastIndexOf("/"));
+    let last = rest.substring(rest.lastIndexOf("/") + 1, rest.length);
     // 1. Fall - Cached
     // Returnen aus dem Cache
-    if (ATTACK_CACHE[url]) {
-        return ATTACK_CACHE[url];
+    if (ATTACK_CACHE[last]) {
+        return ATTACK_CACHE[last];
     }
     // 2. Fall - Nicht im Cache - Laden von Server
     let resp = await fetch(url);
-    let pespAsJson = await resp.json();
-    ATTACK_CACHE = pespAsJson;
-    return ATTACK_CACHE;
+    let respAsJson = await resp.json();
+    ATTACK_CACHE[respAsJson['id']] = respAsJson;
+    return ATTACK_CACHE[respAsJson['id']];
 }
 
 async function loadAbilityJSON(entrypokemon, i) {
+    // debugger;
     let url = entrypokemon['abilities'][i]['ability']['url'];
+    // Z 1 entfernt den letzten backslash, Z 2 gibt die letzen zwei Stellen nach dem letzen Backslash an.
+    let rest = url.substring(0, url.lastIndexOf("/"));
+    let last = rest.substring(rest.lastIndexOf("/") + 1, rest.length);
+    console.log(last);
     // 1. Fall - Cached
     // Returnen aus dem Cache
-    if (ABILITIES_CACHE[url]) {
-        return ABILITIES_CACHE[url];
+    if (ABILITIES_CACHE[last]) {
+        return ABILITIES_CACHE[last];
     }
     // 2. Fall - Nicht im Cache - Laden von Server
     let resp = await fetch(url);
-    let pespAsJson = await resp.json();
-    ABILITIES_CACHE = pespAsJson;
-    return ABILITIES_CACHE;
+    let respAsJson = await resp.json();
+    ABILITIES_CACHE[respAsJson['id']] = respAsJson;
+    // console.log(ABILITIES_CACHE);
+    return ABILITIES_CACHE[respAsJson['id']];
 }
 
 async function getPokemonByUrl(onlypokemonurl) {

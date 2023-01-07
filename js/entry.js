@@ -3,7 +3,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
     const typename = entrypokemon['types'][0]['type']['name'];
     // debugger;
     let currentPokemonTypeJson = findPokemonType(entrypokemon);
-    return  `
+    return  /*html*/ `
     <div class="pokemon-container center entry-background-${typename}">
         <span>${selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies)}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
@@ -22,10 +22,16 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
         <div id="theme" class="theme">
             <div id="aboutTheme" class="aboutTheme padding-five-percent">
                 <div>
-                    <p id="weight">Gewicht :</p><span> ${entrypokemon['weight']}</span>
-                    <p id="height">Größe :</p><span>${entrypokemon['height']}</span>
-                    <p id="ability">Fähigkeit :</p>
+                    <div class="weight-container">
+                        <p id="weight">Gewicht : </p><span>${entrypokemon['weight']} kg</span>
+                    </div>
+                    <div class="height-container">
+                    <p id="height">Größe : </p><span>${entrypokemon['height']}0 cm</span>
+                    </div>
+                    <div class="ability-container">
+                    <p id="ability">Fähigkeit : </p>
                     <span id="ability-name">${generateAbilitiesHTML(entrypokemon)}</span>
+                    </div>
                 </div>
             </div>
             <div id="basestatsTheme" class="basestatsTheme padding-five-percent d-none"></div>
@@ -69,17 +75,17 @@ function selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies) {
 async function generateAbilitiesHTML(entrypokemon) {
     // debugger;
     for (let i = 0; i < entrypokemon['abilities'].length; i++) {
-        await loadAbilityJSON(entrypokemon, i);
+        let currentAbility = await loadAbilityJSON(entrypokemon, i);
         let abilitycontent = document.getElementById('ability-name');
         abilitycontent.innerHTML += `
-        ${selectAbilityLanguage(entrypokemon, i)}
+        ${selectAbilityLanguage(entrypokemon, i, currentAbility)}
         `;
     }
 }
 
-function selectAbilityLanguage(entrypokemon, i) {
+function selectAbilityLanguage(entrypokemon, i, currentAbility) {
     if (currentLanguage == 'German') {
-        return `${ABILITIES_CACHE['names'][4]['name']}`;
+        return `${ABILITIES_CACHE[currentAbility['id']]['names'][4]['name']}`;
     }
     if (currentLanguage == 'English') {
         return `${entrypokemon['abilities'][i]['ability']['name']}`;

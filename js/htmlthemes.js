@@ -79,18 +79,18 @@ async function getLearndLevelAtMovesHtml(entrypokemon) {
     // debugger;
     for (let i = 0; i < movesOrdered.length; i++) {
         if (movesOrdered[i]['version_group_details'][0]['move_learn_method']['name'] == 'level-up') { // machine level-up
-            await loadAttackJSON(entrypokemon, i);
+            let currentMove = await loadAttackJSON(entrypokemon, i);
             let movesbylevelup = document.getElementById('moves');
             movesbylevelup.innerHTML += `
-            <div class="mb_2px">${selectAttackLanguage(entrypokemon, i)}</div>
+            <div class="mb_2px">${selectAttackLanguage(entrypokemon, i, currentMove)}</div>
             `;
         }
     }
 }
 
-function selectAttackLanguage(entrypokemon, i) {
+function selectAttackLanguage(entrypokemon, i, currentMove) {
     if (currentLanguage == 'German') {
-        return `${ATTACK_CACHE['names'][4]['name']}`;
+        return `${ATTACK_CACHE[currentMove['id']]['names'][4]['name']}`;
     }
     if (currentLanguage == 'English') {
         return `${entrypokemon['moves'][i]['move']['name']}`;
