@@ -20,6 +20,32 @@
     width: 50%;
 }
 
+.ability-container {
+    min-height: 60px;
+    max-height: 130px;
+    overflow-y: auto;
+}
+
+.ability-container::-webkit-scrollbar {
+   width: 8px;
+   height: 4px;
+   /* width of the entire scrollbar */
+}
+
+.ability-container::-webkit-scrollbar-track {
+   background: rgb(229, 229, 229);
+   /* color of the tracking area */
+}
+
+.ability-container::-webkit-scrollbar-thumb {
+   background-color: black;
+   /* color of the scroll thumb */
+   border-radius: 20px;
+   /* roundness of the scroll thumb */
+   border: 3px solid rgb(229, 229, 229);
+   /* creates padding around scroll thumb */
+}
+
 /* Base stats Theme */
 
 .basestatsbox {
@@ -27,17 +53,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-}
-
-.section1 {
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    width: 30%;
-}
-
-.section2 {
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    width: 70%;
-    height: 20%;
 }
 
 #progress {
@@ -104,19 +119,12 @@
     /* creates padding around scroll thumb */
 }
 
-.headlinecontent {
-    
-}
-
-
-
-.Movessection1 {
-    /* background-color: rgba(0, 0, 0, 0.5); */
+.stats-container {
     width: 30%;
+    height: 100%;
 }
 
-.Movessection2 {
-    /* background-color: rgba(0, 0, 0, 0.5); */
+.bars-container {
     width: 70%;
-    height: 20%;
+    height: 100%;
 }

@@ -76,10 +76,10 @@
 }
 
 .idAndTypeCon button {
-   height: 70%;
-   /* background-color: #363535; */
-   background-color: rgba(35, 35, 35, 0.45);
-   width: 34%;
+   height: 68%;
+   background-color: rgb(229,229,229);
+   /* background-color: rgba(35, 35, 35, 0.45); */
+   width: 32%;
    border: none;
    border-radius: 8px;
    font-weight: bold;

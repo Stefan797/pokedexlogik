@@ -28,8 +28,8 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
                     <div class="height-container">
                     <div id="height">Größe : </div><div>${entrypokemon['height']}0 cm</div>
                     </div>
-                    <div class="ability-container">
                     <div id="ability">Fähigkeit : </div>
+                    <div class="ability-container mb-8">
                     <div id="ability-name">${generateAbilitiesHTML(entrypokemon)}</div>
                     </div>
                 </div>

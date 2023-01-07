@@ -25,10 +25,10 @@ function generateHtmlBaseStats(entrypokemon) {
     for (let i = 0; i < 6; i++) {
         themeBaseStats.innerHTML += `
         <div class="basestatsbox mb-8">
-            <div class="section1">
+            <div class="stats-container">
             ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
             </div>
-            <div class="section2">
+            <div class="bars-container">
             ${getstatsbars(entrypokemon['stats'][i]['base_stat'], entrypokemon['id'])}
             </div>
         </div>
@@ -40,6 +40,9 @@ function generateHtmlBaseStats(entrypokemon) {
 // ${entrypokemon['stats'][i]['base_stat']}
 
 function getstatsbars(baseStatValue, pokemonID) {
+    if (baseStatValue >= 100) {
+        baseStatValue = 100;
+    }
     let pokemon = pokemonDict[pokemonID];
     let pokemonType = pokemon['types'][0]['type']['name'];
     let baseStatBar = "";
