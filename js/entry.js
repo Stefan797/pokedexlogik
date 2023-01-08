@@ -2,7 +2,7 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) {
     const id = entrypokemon['id'];
     const typename = entrypokemon['types'][0]['type']['name'];
     let currentPokemonTypeJson = findPokemonType(entrypokemon);
-    return  /*html*/ `
+    return `
     <div class="pokemon-container center entry-color-${typename}">
         <span>${selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies)}</span>
         <img src="${entrypokemon['sprites']['other']['dream_world']['front_default']}">
@@ -55,34 +55,6 @@ function selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies) {
     }
     if (currentLanguage == 'English') {
         return `${upperCaseFirstLetter(pokemonDict[pokemonId]['name'])}`;
-    }
-}
-
-async function generateAbilitiesHTML(entrypokemon) {
-    // debugger;
-    for (let i = 0; i < entrypokemon['abilities'].length; i++) {
-        let currentAbility = await loadAbilityJSON(entrypokemon, i);
-        let abilitycontent = document.getElementById('ability-name');
-        abilitycontent.innerHTML += `
-        ${selectAbilityLanguage(entrypokemon, i, currentAbility)}
-        `;
-    }
-}
-
-function selectAbilityLanguage(entrypokemon, i, currentAbility) {
-    if (currentLanguage == 'German') {
-        return `
-        <div class="mb-8">
-            ${ABILITIES_CACHE[currentAbility['id']]['names'][4]['name']}
-            <div class="mt-8">${ABILITIES_CACHE[currentAbility['id']]['flavor_text_entries'][12]['flavor_text']}</div>
-        </div>`;
-    }
-    if (currentLanguage == 'English') {
-        return `
-        <div class="mb-8">
-            ${entrypokemon['abilities'][i]['ability']['name']}
-            <div class="mt-8">${ABILITIES_CACHE[currentAbility['id']]['flavor_text_entries'][0]['flavor_text']}</div>
-        </div>`;
     }
 }
 
