@@ -2,7 +2,8 @@ function generateHtmlAbout(entrypokemon) {
     let themeAbout = document.getElementById('aboutTheme');
     themeAbout.classList.remove('d-none');
     themeAbout.innerHTML = '';
-    themeAbout.innerHTML += `
+    themeAbout.innerHTML += 
+    /*html*/ `
     <div>
         <div class="weight-container">
             <div id="weight">Gewicht : </div><div>${entrypokemon['weight']} kg</div>
@@ -14,7 +15,8 @@ function generateHtmlAbout(entrypokemon) {
             <div id="ability">Fähigkeit : </div>
             <div id="ability-name">${generateAbilitiesHTML(entrypokemon)}</div>
         </div>
-    </div>`;
+    </div>
+    `;
 }
 
 function generateHtmlBaseStats(entrypokemon) {
@@ -23,21 +25,18 @@ function generateHtmlBaseStats(entrypokemon) {
     themeBaseStats.innerHTML = '';
     themeBaseStats.innerHTML += `<div class="flex-start-column"></div>`;
     for (let i = 0; i < 6; i++) {
-        themeBaseStats.innerHTML += `
+        themeBaseStats.innerHTML += /*html*/ `
         <div class="basestatsbox mb-8">
             <div class="stats-container">
-            ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
+                ${upperCaseFirstLetter(entrypokemon['stats'][i]['stat']['name'])}
             </div>
             <div class="bars-container">
-            ${getstatsbars(entrypokemon['stats'][i]['base_stat'], entrypokemon['id'])}
+                ${getstatsbars(entrypokemon['stats'][i]['base_stat'], entrypokemon['id'])}
             </div>
         </div>
-        
         `;
     }
 }
-
-// ${entrypokemon['stats'][i]['base_stat']}
 
 function getstatsbars(baseStatValue, pokemonID) {
     if (baseStatValue >= 100) {

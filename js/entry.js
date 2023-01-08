@@ -1,7 +1,6 @@
-function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
+function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) {
     const id = entrypokemon['id'];
     const typename = entrypokemon['types'][0]['type']['name'];
-    // debugger;
     let currentPokemonTypeJson = findPokemonType(entrypokemon);
     return  /*html*/ `
     <div class="pokemon-container center entry-color-${typename}">
@@ -20,22 +19,9 @@ function getHtmlforSingleEntry(entrypokemon, entrypokemonSpecies) { // /*html*/
             <div id="entry-moves-menu" onclick="showTheme(${id}, 'Moves')">Attacken</div>
         </div>
         <div id="theme" class="theme">
-            <div id="aboutTheme" class="aboutTheme padding-five-percent">
-                <div>
-                    <div class="weight-container">
-                        <div id="weight">Gewicht : </div><div>${entrypokemon['weight']} kg</div>
-                    </div>
-                    <div class="height-container">
-                    <div id="height">Größe : </div><div>${entrypokemon['height']}0 cm</div>
-                    </div>
-                    <div id="ability">Fähigkeit : </div>
-                    <div class="ability-container mb-8">
-                    <div id="ability-name">${generateAbilitiesHTML(entrypokemon)}</div>
-                    </div>
-                </div>
-            </div>
-            <div id="basestatsTheme" class="basestatsTheme padding-five-percent d-none"></div>
-            <div id="movesTheme" class="movesTheme padding-five-percent d-none"></div>
+            ${returnEntryStartThemeAbout(entrypokemon)}
+            ${returnThemeBaseStats()}
+            ${returnThemeMoves()}
         </div>
     </div>
     `;
@@ -99,8 +85,6 @@ function selectAbilityLanguage(entrypokemon, i, currentAbility) {
         </div>`;
     }
 }
-
-
 
 function showTheme(pokemonID, selectedtopic) {
     const entrypokemon = pokemonDict[pokemonID];

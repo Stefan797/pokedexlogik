@@ -1,0 +1,43 @@
+.scrollbar-design {
+    cursor: pointer; /*Nur kurz für test*/
+} 
+
+.ability-container::-webkit-scrollbar {
+    width: 8px;
+    height: 4px;
+    /* width of the entire scrollbar */
+}
+
+.ability-container::-webkit-scrollbar-track {
+    background: rgb(229, 229, 229);
+    /* color of the tracking area */
+}
+
+.ability-container::-webkit-scrollbar-thumb {
+    background-color: black;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid rgb(229, 229, 229);
+    /* creates padding around scroll thumb */
+}
+
+.headlinecontent::-webkit-scrollbar {
+    width: 10px;
+    height: 60%;
+    /* width of the entire scrollbar */
+}
+
+.headlinecontent::-webkit-scrollbar-track {
+    background: rgb(229, 229, 229);
+    /* color of the tracking area */
+}
+
+.headlinecontent::-webkit-scrollbar-thumb {
+    background-color: black;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid rgb(229, 229, 229);
+    /* creates padding around scroll thumb */
+}
