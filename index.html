@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/entrycolor.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header-responsive.css">
 </head>
 
 <body onload="init()">
@@ -52,8 +53,27 @@
         </div>
     </div>
 
-    <div id="header-smaller-1000px" class="headersmartphone">
-        
+    <div id="header-smaller-1000px" class="headersmartphone page_padding">
+        <div class="pikachu">
+            <img onclick="comeUpToSide()" id="headerpokemon-smartphone" class="pikachu-smartphone d-none" src="">
+        </div>
+        <div class="left">
+            <div onclick="openmenu(this.id)" id="informations-menu" class="information-menu button-design center">I</div>
+        </div>
+        <div class="right">
+            <div onclick="openmenu(this.id)" id="language-menu" class="language-menu button-design center">Sprache</div>
+            <div onclick="openmenu(this.id)" id="generations-menu" class="generations-menu button-design">
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--changePokedexLanguageSmartphoneMenu()-->
+
+    <div id="header-menu" class="header-menu d-none">
+        <div onclick="closemenu()" id="close-menu" class="close-menu"></div>
     </div>
 
     <div class="pokemons-background-container page_padding">

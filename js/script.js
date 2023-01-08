@@ -18,7 +18,9 @@ async function init() {
     // debugger;
     await loadPokemonsTypes(18, 0);
     renderPokemonGeneration(1, 151, 1);
-    headerpokemon();
+    await headerpokemon();
+    await headerpokemonsmartphone();
+
     // debugger;
     showdifferentUserInformations();
 }

@@ -1,0 +1,99 @@
+.headersmartphone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10vh;
+    background-color: #0A141E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    width: 50%;
+    height: 8vh;
+    /* background-color: white; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.pikachu {
+    position: fixed;
+    left: 5%;
+    top: 1%;
+}
+
+.pikachu-smartphone {
+    height: 70%;
+    width: 60%;
+    filter: drop-shadow(2px 4px 6px #ffffff);
+}
+
+.information-menu {
+    height: 4vh;
+    width: 10%;
+}
+
+.right {
+    width: 50%;
+    height: 8vh;
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.language-menu {
+    height: 4vh;
+    width: 10%;
+    background-color: black;
+    color: white;
+}
+
+.generations-menu {
+    height: 4vh;
+    width: 10%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    height: 10%;
+    width: 80%;
+    background-color: rgb(70,110,154);
+    margin: 2px 0 2px 0;
+}
+
+.button-design {
+    color: #B3EAFE;
+    border: 1px solid rgb(70,110,154);
+    border-radius: 8px;
+    margin: 0 8px 0 8px;
+    cursor: pointer;
+    background-color: #0A141E;
+    box-shadow: 0px 0px 2px 2px #466e9a;
+}
+
+/* header menu for all Menus*/
+
+.header-menu {
+    z-index: 12;
+    position: fixed;
+    left: 10%;
+    top: 12vh;
+    height: 80vh;
+    width: 80vw;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.close-menu {
+    height: 40px;
+    width: 40px;
+    background-color: black;
+}

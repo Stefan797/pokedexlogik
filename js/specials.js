@@ -7,12 +7,22 @@ async function headerpokemon() {
     let pikachu = 'https://pokeapi.co/api/v2/pokemon/25/';
     let pikachuResp = await fetch(pikachu);
     let pikachuResponseAsJson = await pikachuResp.json();
-    // console.log(pikachuResponseAsJson);
     headerpokemonArray.push(pikachuResponseAsJson);
     let headerpokemon = headerpokemonArray[0];
     let imagepath = headerpokemon['sprites']['other']['dream_world']['front_default'];
     document.getElementById('headerpokemon').src = imagepath;
     document.getElementById('headerpokemon').classList.remove('d-none');
+}
+
+async function headerpokemonsmartphone() {
+    let pikachu = 'https://pokeapi.co/api/v2/pokemon/25/';
+    let pikachuResp = await fetch(pikachu);
+    let pikachuResponseAsJson = await pikachuResp.json();
+    headerpokemonArray.push(pikachuResponseAsJson);
+    let headerpokemon = headerpokemonArray[0];
+    let imagepath = headerpokemon['sprites']['other']['dream_world']['front_default'];
+    document.getElementById('headerpokemon-smartphone').src = imagepath;
+    document.getElementById('headerpokemon-smartphone').classList.remove('d-none');
 }
 
 function comeUpToSide() {
@@ -35,6 +45,26 @@ function changeInformationSentence() {
     }
 }
 
+function openmenu(ID) {
+    document.getElementById('header-menu').classList.remove('d-none');
+    console.log(ID);
+}
+
+function closemenu() {
+    document.getElementById('header-menu').classList.add('d-none');
+}
+
+function changePokedexLanguageSmartphoneMenu() {
+    // debugger;
+    if (currentLanguage == 'German') {
+        currentLanguage = 'English';
+        changePokedexLanguage();
+    } else if (currentLanguage == 'English') {
+        currentLanguage = 'German';
+        changePokedexLanguage();
+    }
+}
+
 function changePokedexLanguage() {
     // debugger;
     if (OpenEntry) {
@@ -43,7 +73,6 @@ function changePokedexLanguage() {
         changeEntryThemeLanguageAbout();
     }
     renderPokemonGeneration(1, 151, 1);
-    
 }
 
 function changeEntryThemeLanguageAbout() {
