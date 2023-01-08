@@ -36,17 +36,6 @@ function findPokemonType(entrypokemon) {
     }
 }
 
-function selectEntryTypeLanguage(entrypokemon, currentPokemonTypeJson) {
-    let pokemonId = entrypokemon['id'];
-    // debugger;
-    if (currentLanguage == 'German') {
-        return `${currentPokemonTypeJson['names'][4]['name']}`;
-    }
-    if (currentLanguage == 'English') {
-        return `${upperCaseFirstLetter(pokemonDict[pokemonId]['types'][0]['type']['name'])}`;
-    }
-}
-
 function selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies) {
     // debugger;
     let pokemonId = entrypokemon['id'];
@@ -55,6 +44,17 @@ function selectEntryPokemonNameLanguage(entrypokemon, entrypokemonSpecies) {
     }
     if (currentLanguage == 'English') {
         return `${upperCaseFirstLetter(pokemonDict[pokemonId]['name'])}`;
+    }
+}
+
+function selectEntryTypeLanguage(entrypokemon, currentPokemonTypeJson) {
+    let pokemonId = entrypokemon['id'];
+    // debugger;
+    if (currentLanguage == 'German') {
+        return `${currentPokemonTypeJson['names'][4]['name']}`;
+    }
+    if (currentLanguage == 'English') {
+        return `${upperCaseFirstLetter(pokemonDict[pokemonId]['types'][0]['type']['name'])}`;
     }
 }
 

@@ -4,11 +4,19 @@
     }
 } */
 
-@media (min-width: 100px) and (max-width: 1000px) {
+@media (max-width: 1000px) {
     #header {
         display: none;
     }
 }
+
+@media (min-width: 1010) and (max-width: 1960px) {
+    #header-smaller-1000px {
+        z-index: -1 !important;
+    }
+}
+
+
 
 /* @media (min-width: 600px) and (max-width: 740px) and (orientation: landscape) {
     
