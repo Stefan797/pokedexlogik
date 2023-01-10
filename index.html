@@ -18,18 +18,19 @@
     <script src="js/themeBaseStats.js"></script>
     <script src="js/themeMoves.js"></script>
     <script src="js/specials.js"></script>
+    <script src="js/changeLanguage.js"></script>
     <script src="js/keyboard.js"></script>
     <script src="js/responsivMenu.js"></script>
 
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/pokedex.css">
     <link rel="stylesheet" href="css/entry.css">
     <link rel="stylesheet" href="css/htmlthemes.css">
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/entrycolor.css">
-    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/header-responsive.css">
     <link rel="stylesheet" href="css/scrollbar-design.css">
 </head>
@@ -59,27 +60,38 @@
         </div>
     </div>
 
-    <div id="header-smaller-1000px" class="headersmartphone page_padding">
+    <div id="headersmartphone" class="headersmartphone page_padding">
         <div class="pikachu">
             <img onclick="comeUpToSide()" id="headerpokemon-smartphone" class="pikachu-smartphone d-none" src="">
         </div>
-        <div class="left">
-            <div onclick="openmenu(this.id)" id="informations-menu" class="information-menu button-design center">I</div>
-        </div>
-        <div class="right">
-            <div onclick="openmenu(this.id)" id="language-menu" class="language-menu button-design center">Sprache</div>
-            <div onclick="openmenu(this.id)" id="generations-menu" class="generations-menu button-design">
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-            </div>
-        </div>
+        <div onclick="openmenu()" class="drop-menu center-column">...</div>
     </div>
 
     <!--changePokedexLanguageSmartphoneMenu()-->
 
     <div id="header-menu" class="header-menu d-none">
-        <div onclick="closemenu()" id="close-menu" class="close-menu"></div>
+        <div class="insidebox center">
+            <div onclick="closemenu()" id="close-menu" class="close-menu">X</div>
+            <div class="allfiles center-column">
+                <p>Generationen</p>
+                <div class="button-box">
+                    <button onclick="loadPokemonGeneration(1, 151, 1)">Gen 1</button>
+                    <button onclick="loadPokemonGeneration(152, 251, 2)">Gen 2</button>
+                    <div class="mt-16">
+                        <button onclick="loadPokemonGeneration(252, 387, 3)">Gen 3</button>
+                    </div>
+                </div>
+                <p>Sprachen</p>
+                <div class="button-box">
+                    <button onclick="changelanguagetoEnglish()">Englisch</button>
+                    <button onclick="changelanguagetoGerman()">Deutsch</button>
+                </div>
+                <p>Informationen</p>
+                <span>
+                    Klicke auf das Pikachu, um oben zur Seite zu gelangen. Informieren Sie sich über die spannenden Details im jeweiligen Eintrag.
+                </span>
+            </div>
+        </div>
     </div>
 
     <div class="pokemons-background-container page_padding">

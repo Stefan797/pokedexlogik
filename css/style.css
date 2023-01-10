@@ -23,6 +23,13 @@ body {
     align-items: center;
 }
 
+.center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .flex-start {
     display: flex;
     justify-content: flex-start;
@@ -124,4 +131,8 @@ body {
 
 .mt-8 {
     margin-top: 8px;
+}
+
+.mt-16 {
+    margin-top: 16px;
 }

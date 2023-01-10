@@ -11,15 +11,6 @@
     z-index: 5 !important;
 }
 
-.left {
-    width: 50%;
-    height: 8vh;
-    /* background-color: white; */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 .pikachu {
     position: fixed;
     left: 5%;
@@ -32,55 +23,13 @@
     filter: drop-shadow(2px 4px 6px #ffffff);
 }
 
-.information-menu {
-    height: 4vh;
-    width: 10%;
-}
-
-.right {
-    width: 50%;
-    height: 8vh;
-    /* background-color: white; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.language-menu {
-    height: 4vh;
-    width: 10%;
-    background-color: black;
+.drop-menu {
+    position: fixed;
+    right: 5%;
+    top: 1%;
     color: white;
+    font-size: 38px;
 }
-
-.generations-menu {
-    height: 4vh;
-    width: 10%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.row {
-    height: 10%;
-    width: 80%;
-    background-color: rgb(70,110,154);
-    margin: 2px 0 2px 0;
-}
-
-.button-design {
-    color: #B3EAFE;
-    border: 1px solid rgb(70,110,154);
-    border-radius: 8px;
-    margin: 0 8px 0 8px;
-    cursor: pointer;
-    background-color: #0A141E;
-    box-shadow: 0px 0px 2px 2px #466e9a;
-}
-
-/* header menu for all Menus*/
 
 .header-menu {
     z-index: 12;
@@ -91,10 +40,87 @@
     width: 80vw;
     background-color: white;
     border-radius: 8px;
+    
+    background-image: url('../img/background-two.jpg');
+}
+
+.insidebox {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.insidebox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2px;
+    border: 2px solid #B3EAFE;
+    animation: clippath 10s infinite linear;
+}
+
+@keyframes clippath {
+    0%,
+    100% {
+        clip-path: inset(0 0 95% 0);
+    }
+    25% {
+        clip-path: inset(0 95% 0 0);
+    }
+    50% {
+        clip-path: inset(95% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 95%);
+    }
 }
 
 .close-menu {
+    position: absolute;
+    right: 8px;
+    top: 8px;
     height: 40px;
     width: 40px;
     background-color: black;
+    font-size: 28px;
+    color: #B3EAFE;
 }
+
+.allfiles {
+    text-align: center;
+}
+
+.allfiles p {
+    color: #B3EAFE;
+    font-size: 22px;
+}
+
+.allfiles span {
+    color: #B3EAFE;
+    font-size: 16px;
+
+}
+
+
+/* .conic {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
+        animation: rotate 4s linear infinite;
+    }
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+} */
